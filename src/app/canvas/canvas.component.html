@@ -1,0 +1,50 @@
+<div class="w-full h-full">
+  <input
+    #background
+    type="text"
+    (keyup.enter)="changeBackground(background.value)"
+    class="border-2 border-gray-300 rounded-md p-2 m-2"
+    placeholder="Background"
+  />
+  <input
+    #primary
+    type="text"
+    (keyup.enter)="changePrimaryColor(primary.value)"
+    class="border-2 border-gray-300 rounded-md p-2 m-2"
+    placeholder="Primary"
+  />
+  <input
+    #secondary
+    type="text"
+    (keyup.enter)="changeSecondaryColor(secondary.value)"
+    class="border-2 border-gray-300 rounded-md p-2 m-2"
+    placeholder="Secondary"
+  />
+  <input
+    #text
+    type="text"
+    (keyup.enter)="changeTextColor(text.value)"
+    class="border-2 border-gray-300 rounded-md p-2 m-2"
+    placeholder="Text"
+  />
+  <div class="grid md:grid-cols-3 gap-4 mx-6">
+    <div class="col-span-2 row-span-2 canvas-elem"></div>
+
+    <div class="col-span-1 row-span-1 canvas-elem">
+      <div class="flex">
+        <div class="rounded-full h-8 w-8 secondary-color"></div>
+      </div>
+      <span class="textField"
+        >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </span>
+    </div>
+
+    <div class="col-span-1 row-span-1 canvas-elem"></div>
+    <div class="col-span-1 row-span-1 canvas-elem"></div>
+    <div class="col-span-2 row-span-1 canvas-elem"></div>
+  </div>
+</div>
+<div class="zrobić to jak w nirvanie"></div>

@@ -1,27 +1,47 @@
-# AccesibilityTester
+# Color palette tester
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
+## Live example 🌐
 
-## Development server
+_This option will be added in the future_
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## About ✍️
 
-## Code scaffolding
+Would you like to check how the color palette you choose looks like in the most typical elements of websites? is it sufficiently contrasting and accessible to people with disabilities? this app solves all these problems.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technological facilities 🛠️
 
-## Build
+### Main architecture
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Application is based on Angular 15.
+- **Two-way data binding** is handled using Angular's FormsModule.
+- UI is mainly done with the **TailwindCSS** framework.
 
-## Running unit tests
+## Installation Guide ⚙️
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This project is based on Angular framework and uses TailwindCSS and ngx-colors libraries. Here's a step-by-step guide to help you get started with the project.
 
-## Running end-to-end tests
+### Prerequisites
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Before you begin, make sure you have the following installed on your machine:
 
-## Further help
+- Node.js (version 14.0 or later)
+- npm package manager (version 6.0 or later)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Installation
+
+Let's start with installing all dependencies. Move to the app main workspace and run:
+
+    npm i
+
+To create a localhost port you should type:
+
+    ng serve
+
+Your application is ready at port 4200.
+
+    http://localhost:4200/
+
+## License and Copyrights 📜
+
+- The application is publicly available under the MIT license.
+- The project is educational and is not used for commercial purposes.

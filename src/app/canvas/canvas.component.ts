@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./canvas.component.scss'],
 })
 export class CanvasComponent implements OnInit {
+  backgroundColor: string = '#7986CB';
+  primaryColor: string = '#1a172c';
+  secondaryColor: string = '#64748b';
+  textColor: string = 'white';
+
   ngOnInit() {
     this.changeTextColor('white');
     this.changeBackground('#1a172c');

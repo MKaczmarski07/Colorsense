@@ -4,10 +4,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { CanvasComponent } from './canvas/canvas.component';
+import { NgxColorsModule } from 'ngx-colors';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent, CanvasComponent],
-  imports: [BrowserModule],
+  imports: [
+    BrowserModule,
+    NgxColorsModule,
+    FormsModule,
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

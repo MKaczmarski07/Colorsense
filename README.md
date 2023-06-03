@@ -14,11 +14,13 @@ Would you like to check how the color palette you choose looks like in the most 
 
 - Application is based on Angular 15.
 - **Two-way data binding** is handled using Angular's FormsModule.
+- Colors are changed by functions that use native Javascript properties.
+- Color conversion is done using the **chroma.js** library.
 - UI is mainly done with the **TailwindCSS** framework.
 
 ## Installation Guide ⚙️
 
-This project is based on Angular framework and uses TailwindCSS and ngx-colors libraries. Here's a step-by-step guide to help you get started with the project.
+This project is based on Angular framework and uses TailwindCSS, ngx-colors and Chroma.js libraries. Here's a step-by-step guide to help you get started with the project.
 
 ### Prerequisites
 

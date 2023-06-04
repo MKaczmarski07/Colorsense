@@ -9,14 +9,14 @@ import * as chroma from 'chroma-js';
 export class CanvasComponent implements OnInit {
   backgroundColor: string = '#7986CB';
   primaryColor: string = '#1a172c';
-  secondaryColor: string = '#64748b';
+  secondaryColor: string = '#3F51B5';
   textColor: string = '#fff';
 
   ngOnInit() {
-    this.changeTextColor('white');
-    this.changeBackground('#1a172c');
-    this.changePrimaryColor('#312a5f');
-    this.changeSecondaryColor('#64748b');
+    this.changeTextColor(this.textColor);
+    this.changeBackground(this.backgroundColor);
+    this.changePrimaryColor(this.primaryColor);
+    this.changeSecondaryColor(this.secondaryColor);
   }
 
   changeBackground(color: string) {

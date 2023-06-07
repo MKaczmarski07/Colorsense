@@ -29,6 +29,25 @@ export class CanvasComponent implements OnInit {
     ) as NodeListOf<HTMLElement>;
     if (primaryColor)
       primaryColor.forEach((e) => (e.style.backgroundColor = color));
+
+    let primaryAccent = primaryColor[0].style.backgroundColor;
+
+    // if color is in the form of text (e.g. 'white'), convert it to rgb
+    if (!primaryAccent.startsWith('rgb')) {
+      primaryAccent = chroma(primaryAccent).css();
+    }
+
+    // make primaryAccentColor 70% opacity of primary color
+    primaryAccent = chroma(primaryAccent).darken(0.7).css();
+    console.log(primaryAccent);
+    const primaryAccentColor = document.querySelectorAll(
+      '.primaryAccent'
+    ) as NodeListOf<HTMLElement>;
+    if (primaryAccentColor) {
+      primaryAccentColor.forEach(
+        (e) => (e.style.backgroundColor = primaryAccent)
+      );
+    }
   }
 
   changeSecondaryColor(color: string) {
@@ -55,7 +74,7 @@ export class CanvasComponent implements OnInit {
       textAccent = chroma(textAccent).css();
     }
     // make textAccentColor 70% opacity of text color
-    textAccent = chroma(textAccent).darken(0.7).css();
+    textAccent = chroma(textAccent).darken(0.9).css();
     console.log(textAccent);
     const textAccentColor = document.querySelectorAll(
       '.textAccent'

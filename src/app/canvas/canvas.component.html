@@ -1,27 +1,4 @@
 <div class="w-full h-full">
-  <div class="flex m-6">
-    <ngx-colors
-      ngx-colors-trigger
-      [(ngModel)]="backgroundColor"
-      (ngModelChange)="changeBackground(backgroundColor)"
-    ></ngx-colors>
-    <ngx-colors
-      ngx-colors-trigger
-      [(ngModel)]="primaryColor"
-      (ngModelChange)="changePrimaryColor(primaryColor)"
-    ></ngx-colors>
-    <ngx-colors
-      ngx-colors-trigger
-      [(ngModel)]="secondaryColor"
-      (ngModelChange)="changeSecondaryColor(secondaryColor)"
-    ></ngx-colors>
-    <ngx-colors
-      ngx-colors-trigger
-      [(ngModel)]="textColor"
-      (ngModelChange)="changeTextColor(textColor)"
-    ></ngx-colors>
-  </div>
-
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mx-6">
     <div class="row-span-1 canvas-elem p-4">
       <div class="flex justify-between items-center mb-3">

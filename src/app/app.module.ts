@@ -7,9 +7,10 @@ import { CanvasComponent } from './canvas/canvas.component';
 import { NgxColorsModule } from 'ngx-colors';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, CanvasComponent],
+  declarations: [AppComponent, MenuComponent, CanvasComponent, FooterComponent],
   imports: [
     BrowserModule,
     NgxColorsModule,

@@ -1,20 +1,21 @@
 <div class="w-full h-full">
-  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mx-6">
-    <div class="row-span-1 canvas-elem p-4">
-      <div class="flex justify-between items-center mb-3">
-        <div class="flex items-center gap-3">
-          <div class="rounded-full h-8 w-8 secondary-color"></div>
-          <span class="textField font-[500]">User #3321</span>
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mx-6">
+    <div class="row-span-1 canvas-elem p-4 flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-center mb-3">
+          <div class="flex items-center gap-3">
+            <div class="rounded-full h-8 w-8 secondary-color"></div>
+            <span class="textField font-[500]">User #3321</span>
+          </div>
+          <span class="textAccent">10 Jun, 20.16</span>
         </div>
-        <span class="textAccent">10 Jun, 20.16</span>
+        <span class="textField"
+          >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </span>
       </div>
-
-      <span class="textField"
-        >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </span>
       <hr class="textAccent my-3" />
       <div class="flex justify-between px-3">
         <button>
@@ -98,19 +99,55 @@
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z"
+              d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
             ></path>
           </svg>
         </button>
       </div>
     </div>
-    <div class="row-span-1"></div>
+    <div class="row-span-1 canvas-elem p-3">
+      <div class="flex justify-end w-full">
+        <button>
+          <svg
+            class="w-6 h-6 textField"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-col items-center gap-3">
+        <span class="uppercase textField">Enter your email and get</span>
+        <span class="uppercase textField text-4xl font-[500]">30% off</span>
+        <div class="w-full flex flex-col gap-6 my-3 px-3">
+          <input
+            type="email"
+            class="w-full rounded-[5px] py-2 px-3 focus:outline-none"
+            placeholder="Enter your email here"
+          />
+          <button
+            class="textField w-full py-2 rounded-[5px] secondary-color flex gap-2 justify-center text-xl"
+          >
+            Get my discount
+          </button>
+        </div>
+      </div>
+    </div>
 
     <div class="col-span-1 row-span-2 canvas-elem">
       <div class="h-[10rem] secondary-color rounded-t-[10px]"></div>
       <div class="p-4 flex flex-col gap-3">
         <h1 class="text-2xl textField font-[500]">Favourite Place</h1>
-        <div class="flex">
+        <div class="flex cursor-pointer">
           <svg
             class="w-6 h-6 textAccent"
             fill="none"
@@ -192,6 +229,10 @@
         >
           Book a table
         </button>
+        <span class="textAccent my-3">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </span>
         <span class="textField font-[500]"
           >Available options:
           <span class="textAccent font-[400]"
@@ -208,16 +249,20 @@
         </span>
       </div>
     </div>
-    <div class="row-span-1">
-      <div class="w-full flex">
-        <input
-          type="text"
-          class="w-[80%] rounded-l-[10px] py-2 px-3 focus:outline-none"
-          placeholder="Search..."
-        />
-        <button
-          class="w-[20%] secondary-color rounded-r-[10px] flex justify-center items-center"
-        >
+    <div class="row-span-1 canvas-elem p-6 flex flex-col justify-between">
+      <div>
+        <span class="textAccent">Producer</span>
+        <div class="flex justify-between">
+          <span class="text-2xl textField font-[500]">Product Name</span>
+          <span class="text-2xl textField font-[500]">$148.00</span>
+        </div>
+        <p class="textField my-3">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+      <div class="flex gap-6">
+        <button class="p-2 rounded-[10px] border-2 justify-center items-center">
           <svg
             class="w-6 h-6 textField"
             fill="none"
@@ -230,130 +275,12 @@
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
             ></path>
           </svg>
         </button>
-      </div>
-      <div class="mt-3 flex justify-between">
-        <button class="p-3 rounded-full secondary-color textField">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-            ></path>
-          </svg>
-        </button>
-        <button class="p-3 rounded-full secondary-color textField">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5"
-            ></path>
-          </svg>
-        </button>
-        <button class="p-3 rounded-full secondary-color textField">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z"
-            ></path>
-          </svg>
-        </button>
-        <button class="p-3 rounded-full secondary-color textField">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-            ></path>
-          </svg>
-        </button>
-        <button class="p-3 rounded-full secondary-color textField">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"
-            ></path>
-          </svg>
-        </button>
-        <button class="p-3 rounded-full secondary-color textField">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"
-            ></path>
-          </svg>
-        </button>
-        <button class="p-3 rounded-full secondary-color textField">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"
-            ></path>
-          </svg>
+        <button class="w-full py-2 secondary-color textField rounded-[10px]">
+          Add to Cart
         </button>
       </div>
     </div>
@@ -385,7 +312,7 @@
       </div>
     </div>
     <div
-      class="col-span-1 row-span-2 canvas-elem p-6 flex flex-col items-center"
+      class="col-span-1 row-span-1 canvas-elem p-6 flex flex-col items-center"
     >
       <span class="text-2xl textField font-[500] mb-9"
         >Sign Into Your Account</span
@@ -443,7 +370,7 @@
         />
       </div>
       <div class="flex justify-between my-9 w-full">
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-3 cursor-pointer">
           <button
             class="rounded-[5px] flex justify-center items-center w-6 h-6 secondary-color"
           >
@@ -473,6 +400,231 @@
       >
         Login
       </button>
+    </div>
+    <div class="row-span-1 canvas-elem p-6 flex flex-col justify-between">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <div class="rounded-full h-8 w-8 secondary-color"></div>
+          <span class="textField font-[500]">User Name</span>
+        </div>
+        <div class="flex gap-3">
+          <button>
+            <svg
+              class="w-6 h-6 textField"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"
+              ></path>
+            </svg>
+          </button>
+          <button>
+            <svg
+              class="w-6 h-6 textField"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="w-full flex flex-col gap-3">
+        <div class="flex justify-end">
+          <span
+            class="textField secondary-color p-2 rounded-[10px] rounded-br-[0px]"
+          >
+            Lorem ipsum dolor sit amet
+          </span>
+        </div>
+        <div class="flex justify-start">
+          <span
+            class="textField bg-[#383855] p-2 rounded-[10px] rounded-bl-[0px]"
+          >
+            Consectetur adipiscing elit
+          </span>
+        </div>
+        <div class="flex justify-start">
+          <span
+            class="textField bg-[#383855] p-2 rounded-[10px] rounded-bl-[0px]"
+          >
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </span>
+        </div>
+      </div>
+      <div class="w-full flex gap-3">
+        <input
+          type="text"
+          class="w-full rounded-[10px] py-2 px-3 focus:outline-none"
+          placeholder="Message"
+        />
+        <button
+          class="secondary-color rounded-[10px] flex justify-center items-center p-2"
+        >
+          <svg
+            class="w-6 h-6 textField"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="row-span-1 canvas-elem p-6 flex flex-col justify-center">
+      <div>
+        <div class="flex flex-col">
+          <span class="textAccent">Bank name</span>
+          <span class="text-2xl textField">Account type</span>
+          <span class="textAccent">01 (...) 1234 4321</span>
+        </div>
+        <div class="flex items-end flex-col">
+          <span class="textField"> Available funds </span>
+          <span class="text-2xl textField font-[500]">1234.56 $</span>
+        </div>
+        <div class="flex gap-6 my-3">
+          <button
+            class="textField w-full py-2 rounded-[5px] border-2 flex gap-2 justify-center"
+          >
+            <svg
+              class="w-6 h-6 textField"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+              ></path>
+            </svg>
+            History
+          </button>
+          <button
+            class="textField w-full py-2 secondary-color rounded-[5px] flex gap-2 justify-center"
+          >
+            <svg
+              class="w-6 h-6 textField"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5"
+              ></path>
+            </svg>
+            Transfer
+          </button>
+        </div>
+      </div>
+      <div class="flex mt-3 gap-3 flex-col">
+        <span class="textField font-[500]">Actions</span>
+        <div class="flex gap-6">
+          <button class="p-3 rounded-full secondary-color textField">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+              ></path>
+            </svg>
+          </button>
+          <button class="p-3 rounded-full secondary-color textField">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+              ></path>
+            </svg>
+          </button>
+          <button class="p-3 rounded-full secondary-color textField">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"
+              ></path>
+            </svg>
+          </button>
+          <button class="p-3 rounded-full secondary-color textField">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

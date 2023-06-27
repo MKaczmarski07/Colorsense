@@ -1,45 +1,51 @@
-<nav class="bg-white h-12 px-6 flex justify-between items-center">
-  <div class="flex">
-    <img alt="Logo" />
-    <span class="font-[500]">Colors Accesibility</span>
+<nav class="bg-white md:h-12 h-24 px-6 flex justify-between items-center">
+  <div class="flex h-full md:items-center items-start md:mt-0 mt-6">
+    <img
+      alt="Logo"
+      src="../../assets/Images/logo.svg"
+      width="80px"
+      height="56px"
+    />
   </div>
-  <div class="flex">
+  <div class="flex md:flex-row flex-col-reverse md:gap-0 gap-3">
     <div class="flex gap-6">
-      <div
-        class="w-7 h-7 cursor-pointer backgroundColorPicker rounded-full picker"
+      <button
+        class="w-8 h-8 cursor-pointer backgroundColorPicker rounded-full picker"
         ngx-colors-trigger
         [(ngModel)]="colorsService.backgroundColor"
         (ngModelChange)="
           colorsService.changeBackground(colorsService.backgroundColor)
         "
-      ></div>
-      <div
-        class="w-7 h-7 cursor-pointer canvas-elem rounded-full picker"
+      ></button>
+      <button
+        class="w-8 h-8 cursor-pointer canvas-elem rounded-full picker"
         ngx-colors-trigger
         [(ngModel)]="colorsService.primaryColor"
         (ngModelChange)="
           colorsService.changePrimaryColor(colorsService.primaryColor)
         "
-      ></div>
-      <div
-        class="w-7 h-7 cursor-pointer secondary-color rounded-full picker"
+      ></button>
+      <button
+        class="w-8 h-8 cursor-pointer secondary-color rounded-full picker"
         ngx-colors-trigger
         [(ngModel)]="colorsService.secondaryColor"
         (ngModelChange)="
           colorsService.changeSecondaryColor(colorsService.secondaryColor)
         "
-      ></div>
-      <div
-        class="w-7 h-7 cursor-pointer textPicker rounded-full picker"
+      ></button>
+      <button
+        class="w-8 h-8 cursor-pointer textPicker rounded-full picker"
         ngx-colors-trigger
         [(ngModel)]="colorsService.textColor"
         (ngModelChange)="colorsService.changeTextColor(colorsService.textColor)"
-      ></div>
+      ></button>
     </div>
 
-    <span class="border-l-2 border-slate-200 h-[1.75rem] mx-6"></span>
+    <span
+      class="border-l-2 border-slate-200 h-[1.75rem] mx-6 md:block hidden"
+    ></span>
 
-    <div class="flex gap-6 text-[#2C3439]">
+    <div class="flex gap-6 text-[#2C3439] justify-end">
       <button>
         <svg
           class="h-7 w-7"

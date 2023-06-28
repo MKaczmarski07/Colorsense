@@ -7,8 +7,8 @@ import * as chroma from 'chroma-js';
 export class ColorsService {
   constructor() {}
   backgroundColor: string = '#7986CB';
-  primaryColor: string = '#1a172c';
-  secondaryColor: string = '#3F51B5';
+  primaryColor: string = '#3F51B5';
+  secondaryColor: string = '#1a172c';
   textColor: string = '#fff';
 
   changeBackground(color: string) {
@@ -18,33 +18,7 @@ export class ColorsService {
     ) as NodeListOf<HTMLElement>;
     if (backgroundColorPicker)
       backgroundColorPicker[0].style.backgroundColor = color;
-  }
-
-  changePrimaryColor(color: string) {
-    const primaryColor = document.querySelectorAll(
-      '.canvas-elem'
-    ) as NodeListOf<HTMLElement>;
-    if (primaryColor)
-      primaryColor.forEach((e) => (e.style.backgroundColor = color));
-
-    let primaryAccent = primaryColor[0].style.backgroundColor;
-
-    // if color is in the form of text (e.g. 'white'), convert it to rgb
-    if (!primaryAccent.startsWith('rgb')) {
-      primaryAccent = chroma(primaryAccent).css();
-    }
-
-    // make primaryAccentColor 70% opacity of primary color
-    primaryAccent = chroma(primaryAccent).darken(0.7).css();
-    console.log(primaryAccent);
-    const primaryAccentColor = document.querySelectorAll(
-      '.primaryAccent'
-    ) as NodeListOf<HTMLElement>;
-    if (primaryAccentColor) {
-      primaryAccentColor.forEach(
-        (e) => (e.style.backgroundColor = primaryAccent)
-      );
-    }
+    this.saveColors();
   }
 
   changeSecondaryColor(color: string) {
@@ -53,6 +27,23 @@ export class ColorsService {
     ) as NodeListOf<HTMLElement>;
     if (secondaryColor)
       secondaryColor.forEach((e) => (e.style.backgroundColor = color));
+
+    let secondaryAccent = secondaryColor[0].style.backgroundColor;
+
+    // if color is in the form of text (e.g. 'white'), convert it to rgb
+    if (!secondaryAccent.startsWith('rgb')) {
+      secondaryAccent = chroma(secondaryAccent).css();
+    }
+    this.saveColors();
+  }
+
+  changePrimaryColor(color: string) {
+    const primaryColor = document.querySelectorAll(
+      '.primary-color'
+    ) as NodeListOf<HTMLElement>;
+    if (primaryColor)
+      primaryColor.forEach((e) => (e.style.backgroundColor = color));
+    this.saveColors();
   }
 
   changeTextColor(color: string) {
@@ -85,5 +76,27 @@ export class ColorsService {
       '.textPicker'
     ) as NodeListOf<HTMLElement>;
     if (textPicker) textPicker[0].style.backgroundColor = color;
+
+    this.saveColors();
+  }
+
+  saveColors() {
+    let colors = {
+      backgroundColor: this.backgroundColor,
+      primaryColor: this.primaryColor,
+      secondaryColor: this.secondaryColor,
+      textColor: this.textColor,
+    };
+    localStorage.setItem('colors', JSON.stringify(colors));
+  }
+
+  loadColors() {
+    let loadedColors = JSON.parse(localStorage.getItem('colors')!);
+    if (loadedColors) {
+      this.backgroundColor = loadedColors.backgroundColor;
+      this.primaryColor = loadedColors.primaryColor;
+      this.secondaryColor = loadedColors.secondaryColor;
+      this.textColor = loadedColors.textColor;
+    }
   }
 }

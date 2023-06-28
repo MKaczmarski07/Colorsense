@@ -8,12 +8,16 @@ import { ColorsService } from '../colors.service';
 })
 export class CanvasComponent implements OnInit {
   constructor(public colorsService: ColorsService) {}
-  backgroundColor: string = '#7986CB';
-  primaryColor: string = '#1a172c';
-  secondaryColor: string = '#3F51B5';
-  textColor: string = '#fff';
 
   ngOnInit() {
     this.colorsService.loadColors();
+    this.colorsService.changeBackground(this.colorsService.backgroundColor);
+    this.colorsService.changePrimaryColor(this.colorsService.primaryColor);
+    this.colorsService.changeSecondaryColor(this.colorsService.secondaryColor);
+    this.colorsService.changeTextColor(this.colorsService.textColor);
+    this.colorsService.changeButtonTextColor(
+      this.colorsService.buttonTextColor
+    );
+    this.colorsService.changeFormColor(this.colorsService.formColor);
   }
 }

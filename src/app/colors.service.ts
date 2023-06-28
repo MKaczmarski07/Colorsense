@@ -6,10 +6,13 @@ import * as chroma from 'chroma-js';
 })
 export class ColorsService {
   constructor() {}
+  isModeAdvanced: boolean = false;
   backgroundColor: string = '#7986CB';
   primaryColor: string = '#3F51B5';
   secondaryColor: string = '#1a172c';
   textColor: string = '#fff';
+  buttonTextColor: string = '#fff';
+  formColor: string = '#fff';
 
   changeBackground(color: string) {
     document.body.style.backgroundColor = color;
@@ -34,6 +37,18 @@ export class ColorsService {
     if (!secondaryAccent.startsWith('rgb')) {
       secondaryAccent = chroma(secondaryAccent).css();
     }
+
+    secondaryAccent = chroma(secondaryAccent).darken(0.5).css();
+    console.log(secondaryAccent);
+    const secondaryAccentColor = document.querySelectorAll(
+      '.secondaryAccent'
+    ) as NodeListOf<HTMLElement>;
+    if (secondaryAccentColor) {
+      secondaryAccentColor.forEach(
+        (e) => (e.style.backgroundColor = secondaryAccent)
+      );
+    }
+
     this.saveColors();
   }
 
@@ -77,6 +92,40 @@ export class ColorsService {
     ) as NodeListOf<HTMLElement>;
     if (textPicker) textPicker[0].style.backgroundColor = color;
 
+    // Change color of the borders
+    const borderColor = document.querySelectorAll(
+      '.borderColor'
+    ) as NodeListOf<HTMLElement>;
+    if (borderColor) borderColor.forEach((e) => (e.style.borderColor = color));
+
+    this.saveColors();
+  }
+
+  changeButtonTextColor(color: string) {
+    const buttonTextColor = document.querySelectorAll(
+      '.buttonTextColor'
+    ) as NodeListOf<HTMLElement>;
+    if (buttonTextColor)
+      buttonTextColor.forEach((e) => (e.style.color = color));
+
+    const buttonColorPicker = document.querySelectorAll(
+      '.buttonColorPicker'
+    ) as NodeListOf<HTMLElement>;
+    if (buttonColorPicker) buttonColorPicker[0].style.backgroundColor = color;
+
+    this.saveColors();
+  }
+
+  changeFormColor(color: string) {
+    const formColor = document.querySelectorAll(
+      '.formColor'
+    ) as NodeListOf<HTMLElement>;
+    if (formColor) formColor.forEach((e) => (e.style.backgroundColor = color));
+    const formColorPicker = document.querySelectorAll(
+      '.formColorPicker'
+    ) as NodeListOf<HTMLElement>;
+    if (formColorPicker) formColorPicker[0].style.backgroundColor = color;
+
     this.saveColors();
   }
 
@@ -86,6 +135,8 @@ export class ColorsService {
       primaryColor: this.primaryColor,
       secondaryColor: this.secondaryColor,
       textColor: this.textColor,
+      buttonTextColor: this.buttonTextColor,
+      formColor: this.formColor,
     };
     localStorage.setItem('colors', JSON.stringify(colors));
   }
@@ -93,10 +144,26 @@ export class ColorsService {
   loadColors() {
     let loadedColors = JSON.parse(localStorage.getItem('colors')!);
     if (loadedColors) {
+      this.isModeAdvanced = loadedColors.isModeAdvanced;
       this.backgroundColor = loadedColors.backgroundColor;
       this.primaryColor = loadedColors.primaryColor;
       this.secondaryColor = loadedColors.secondaryColor;
       this.textColor = loadedColors.textColor;
+      this.buttonTextColor = loadedColors.buttonTextColor;
+      this.formColor = loadedColors.formColor;
     }
   }
+
+  // saveSettings() {
+  //   let settings = {
+  //   };
+  //   localStorage.setItem('settings', JSON.stringify(settings));
+  // }
+
+  // loadSettings() {
+  //   let loadedSettings = JSON.parse(localStorage.getItem('settings')!);
+  //   if (loadedSettings) {
+
+  //   }
+  // }
 }

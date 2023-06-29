@@ -6,7 +6,6 @@ import * as chroma from 'chroma-js';
 })
 export class ColorsService {
   constructor() {}
-  isModeAdvanced: boolean = false;
   backgroundColor: string = '#7986CB';
   primaryColor: string = '#3F51B5';
   secondaryColor: string = '#1a172c';
@@ -15,7 +14,12 @@ export class ColorsService {
   formColor: string = '#fff';
 
   changeBackground(color: string) {
-    document.body.style.backgroundColor = color;
+    const backgroundColor = document.querySelectorAll(
+      '.canvas'
+    ) as NodeListOf<HTMLElement>;
+    if (backgroundColor)
+      backgroundColor.forEach((e) => (e.style.backgroundColor = color));
+
     const backgroundColorPicker = document.querySelectorAll(
       '.backgroundColorPicker'
     ) as NodeListOf<HTMLElement>;
@@ -129,6 +133,16 @@ export class ColorsService {
     this.saveColors();
   }
 
+  resetColors() {
+    this.backgroundColor = '#7986CB';
+    this.primaryColor = '#3F51B5';
+    this.secondaryColor = '#1a172c';
+    this.textColor = '#fff';
+    this.buttonTextColor = '#fff';
+    this.formColor = '#fff';
+    this.saveColors();
+  }
+
   saveColors() {
     let colors = {
       backgroundColor: this.backgroundColor,
@@ -144,7 +158,6 @@ export class ColorsService {
   loadColors() {
     let loadedColors = JSON.parse(localStorage.getItem('colors')!);
     if (loadedColors) {
-      this.isModeAdvanced = loadedColors.isModeAdvanced;
       this.backgroundColor = loadedColors.backgroundColor;
       this.primaryColor = loadedColors.primaryColor;
       this.secondaryColor = loadedColors.secondaryColor;

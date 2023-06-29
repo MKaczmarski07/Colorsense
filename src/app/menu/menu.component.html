@@ -1,66 +1,81 @@
 <nav class="bg-white md:h-12 h-24 px-6 flex justify-between items-center">
-  <div class="flex h-full md:items-center items-start md:mt-0 mt-6">
-    <img
-      alt="Logo"
-      src="../../assets/Images/logo.svg"
-      width="80px"
-      height="56px"
-    />
+  <div class="flex h-full py-3 md:items-center items-start">
+    <button routerLink="/">
+      <img
+        class="md:h-8 md:w-8 w-7 h-7"
+        alt="Logo"
+        src="../../assets/Images/logo.svg"
+        width="30px"
+        height="30px"
+      />
+    </button>
   </div>
   <div class="flex md:flex-row flex-col-reverse md:gap-0 gap-3">
-    <div class="flex gap-6">
+    <div class="flex md:gap-6 gap-4 justify-end">
       <button
-        class="w-8 h-8 cursor-pointer backgroundColorPicker rounded-full picker"
+        class="w-8 h-8 cursor-pointer backgroundColorPicker rounded-full picker tooltip"
         ngx-colors-trigger
         [(ngModel)]="colorsService.backgroundColor"
         (ngModelChange)="
           colorsService.changeBackground(colorsService.backgroundColor)
         "
-      ></button>
+      >
+        <span class="tooltiptext mt-[0.3rem]">Background</span>
+      </button>
       <button
-        class="w-8 h-8 cursor-pointer primary-color rounded-full picker"
+        class="w-8 h-8 cursor-pointer primary-color rounded-full picker tooltip"
         ngx-colors-trigger
         [(ngModel)]="colorsService.primaryColor"
         (ngModelChange)="
           colorsService.changePrimaryColor(colorsService.primaryColor)
         "
-      ></button>
+      >
+        <span class="tooltiptext mt-[0.3rem]">Primary</span>
+      </button>
       <button
-        class="w-8 h-8 cursor-pointer secondary-color rounded-full picker"
+        class="w-8 h-8 cursor-pointer secondary-color rounded-full picker tooltip"
         ngx-colors-trigger
         [(ngModel)]="colorsService.secondaryColor"
         (ngModelChange)="
           colorsService.changeSecondaryColor(colorsService.secondaryColor)
         "
-      ></button>
+      >
+        <span class="tooltiptext mt-[0.3rem]">Secondary</span>
+      </button>
       <button
-        class="w-8 h-8 cursor-pointer textPicker rounded-full picker"
+        class="w-8 h-8 cursor-pointer textPicker rounded-full picker tooltip"
         ngx-colors-trigger
         [(ngModel)]="colorsService.textColor"
         (ngModelChange)="colorsService.changeTextColor(colorsService.textColor)"
-      ></button>
+      >
+        <span class="tooltiptext mt-[0.3rem]">Text</span>
+      </button>
       <button
-        class="w-8 h-8 cursor-pointer buttonColorPicker rounded-full picker"
+        class="w-8 h-8 cursor-pointer buttonColorPicker rounded-full picker tooltip"
         ngx-colors-trigger
         [(ngModel)]="colorsService.buttonTextColor"
         (ngModelChange)="
           colorsService.changeButtonTextColor(colorsService.buttonTextColor)
         "
-      ></button>
+      >
+        <span class="tooltiptext mt-[0.3rem]">Button text</span>
+      </button>
       <button
-        class="w-8 h-8 cursor-pointer formColorPicker rounded-full picker"
+        class="w-8 h-8 cursor-pointer formColorPicker rounded-full picker tooltip"
         ngx-colors-trigger
         [(ngModel)]="colorsService.formColor"
         (ngModelChange)="colorsService.changeFormColor(colorsService.formColor)"
-      ></button>
+      >
+        <span class="tooltiptext mt-[0.3rem]">Forms</span>
+      </button>
     </div>
 
     <span
       class="border-l-2 border-slate-200 h-[1.75rem] mx-6 md:block hidden"
     ></span>
 
-    <div class="flex gap-6 text-[#2C3439] justify-end">
-      <button class="tooltip">
+    <div class="flex md:gap-6 gap-4 text-[#2C3439] justify-end">
+      <button class="tooltip" routerLink="/canvas">
         <svg
           class="h-7 w-7"
           fill="none"
@@ -78,7 +93,7 @@
         </svg>
         <span class="tooltiptext">Elements</span>
       </button>
-      <button class="tooltip">
+      <button class="tooltip" routerLink="/contrast">
         <svg
           class="h-7 w-7"
           fill="none"
@@ -119,7 +134,7 @@
         </svg>
         <span class="tooltiptext"> Disability filter</span>
       </button>
-      <button class="tooltip">
+      <button class="tooltip" (click)="colorsService.resetColors()">
         <svg
           class="w-7 h-7"
           fill="none"

@@ -42,8 +42,13 @@ export class ColorsService {
       secondaryAccent = chroma(secondaryAccent).css();
     }
 
-    secondaryAccent = chroma(secondaryAccent).darken(0.5).css();
-    console.log(secondaryAccent);
+    // Check if color is light or dark and set proper accent color
+    if (chroma.deltaE(color, '#000') < 50) {
+      secondaryAccent = chroma(secondaryAccent).darken(-0.4).css();
+    } else {
+      secondaryAccent = chroma(secondaryAccent).darken(0.4).css();
+    }
+
     const secondaryAccentColor = document.querySelectorAll(
       '.secondaryAccent'
     ) as NodeListOf<HTMLElement>;
@@ -94,7 +99,7 @@ export class ColorsService {
     const textPicker = document.querySelectorAll(
       '.textPicker'
     ) as NodeListOf<HTMLElement>;
-    if (textPicker) textPicker[0].style.backgroundColor = color;
+    if (textPicker) textPicker.forEach((e) => (e.style.background = color));
 
     // Change color of the borders
     const borderColor = document.querySelectorAll(
@@ -165,6 +170,26 @@ export class ColorsService {
       this.buttonTextColor = loadedColors.buttonTextColor;
       this.formColor = loadedColors.formColor;
     }
+  }
+
+  checkContrast(
+    color1: string,
+    color2: string,
+    className: string,
+    type: string
+  ) {
+    let contrast = chroma.contrast(color1, color2);
+    contrast = Math.round(contrast * 100) / 100;
+    className = '.' + className;
+    const contrastRatio = document.querySelectorAll(
+      className
+    ) as NodeListOf<HTMLElement>;
+    if (contrast > 4.5) {
+      contrastRatio[0].style.color = '#4BB543';
+    } else {
+      contrastRatio[0].style.color = '#FF0000';
+    }
+    return contrast;
   }
 
   // saveSettings() {

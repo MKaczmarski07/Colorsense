@@ -9,9 +9,9 @@ export class ColorsService {
   backgroundColor: string = '#7986CB';
   primaryColor: string = '#3F51B5';
   secondaryColor: string = '#1a172c';
-  textColor: string = '#fff';
-  buttonTextColor: string = '#fff';
-  formColor: string = '#fff';
+  textColor: string = '#ffffff';
+  buttonTextColor: string = '#ffffff';
+  formColor: string = '#ffffff';
 
   textToBackgroundRatio: number = 0;
   textToSecondaryRatio: number = 0;
@@ -28,7 +28,13 @@ export class ColorsService {
       '.backgroundColorPicker'
     ) as NodeListOf<HTMLElement>;
     if (backgroundColorPicker)
-      backgroundColorPicker[0].style.backgroundColor = color;
+      backgroundColorPicker.forEach((e) => (e.style.backgroundColor = color));
+
+    this.textToBackgroundRatio = this.checkContrast(
+      this.textColor,
+      this.backgroundColor
+    );
+
     this.saveColors();
   }
 
@@ -62,6 +68,11 @@ export class ColorsService {
       );
     }
 
+    this.textToSecondaryRatio = this.checkContrast(
+      this.textColor,
+      this.secondaryColor
+    );
+
     this.saveColors();
   }
 
@@ -71,6 +82,12 @@ export class ColorsService {
     ) as NodeListOf<HTMLElement>;
     if (primaryColor)
       primaryColor.forEach((e) => (e.style.backgroundColor = color));
+
+    this.buttonTextRatio = this.checkContrast(
+      this.buttonTextColor,
+      this.primaryColor
+    );
+
     this.saveColors();
   }
 

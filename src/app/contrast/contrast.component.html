@@ -1,56 +1,28 @@
-<div class="min-h-[100svh] flex justify-center items-center">
-  <!-- <div class="flex items-center gap-3">
-    <span
-      >Normal text to background
-      {{
-        colorsService.checkContrast(
-          colorsService.textColor,
-          colorsService.backgroundColor
-        )
-      }}:1</span
-    >
-    <span
-      >Normal text to secondary
-      {{
-        colorsService.checkContrast(
-          colorsService.textColor,
-          colorsService.secondaryColor
-        )
-      }}:1</span
-    >
-    <span
-      >Button text
-      {{
-        colorsService.checkContrast(
-          colorsService.buttonTextColor,
-          colorsService.primaryColor
-        )
-      }}:1</span
-    >
-  </div> -->
-  <div class="flex">
+<div class="min-h-[100svh] flex flex-col px-6 md:pt-20 pt-[7.5rem] pb-6">
+  <ng-template #fail><span class="text-[#b52546]">Fail</span> </ng-template>
+  <div class="flex md:flex-row flex-col-reverse md:mx-auto">
     <div
-      class="box-border w-[50%] p-6 border-2 border-r-0 border-[#e9e8e8] rounded-[10px] rounded-r-none"
+      class="box-border md:w-[50%] w-full p-6 border-2 md:border-t-2 md:border-r-0 border-t-0 border-[#e9e8e8] rounded-[10px] md:rounded-r-none rounded-t-none md:rounded-tl-[10px]"
     >
       <div class="flex flex-col gap-6">
         <div class="flex gap-6 w-full">
           <div class="flex flex-col gap-1 w-[50%]">
-            <span class="text-xl font-[500]">Secondary color</span>
+            <span class="text-lg font-[500]">Secondary color</span>
             <div
               class="flex justify-between items-center py-2 px-3 border-2 border-[#e9e8e8] rounded-[10px]"
             >
-              <span class="text-xl">#1F234</span>
+              <span class="text-lg">#1F234</span>
               <div
                 class="secondary-color w-6 h-6 rounded-[5px] border-2 border-[#eeeeee]"
               ></div>
             </div>
           </div>
           <div class="flex flex-col gap-1 w-[50%]">
-            <span class="text-xl font-[500]">Text color</span>
+            <span class="text-lg font-[500]">Text color</span>
             <div
               class="flex justify-between items-center py-2 px-3 border-2 border-[#eeeeee] rounded-[10px]"
             >
-              <span class="text-xl">#FF32</span>
+              <span class="text-lg">#FF32</span>
               <div
                 class="textPicker w-6 h-6 rounded-[5px] border-2 border-[#eeeeee]"
               ></div>
@@ -58,30 +30,48 @@
           </div>
         </div>
 
-        <span class="text-xl font-[500]">Contrast ratio</span>
-        <span class="text-4xl font-[500] textToSecondary"
-          >{{
-            colorsService.checkContrast(
-              colorsService.textColor,
-              colorsService.secondaryColor,
-              "textToSecondary",
-              "AA"
-            )
-          }}:1</span
+        <span class="text-lg font-[500]">Contrast ratio</span>
+        <span
+          class="text-4xl font-[500]"
+          [ngClass]="{
+            'text-[#018578]': colorsService.textToSecondaryRatio >= 4.5,
+            'text-[#b52546]': colorsService.textToSecondaryRatio < 4.5
+          }"
+          >{{ colorsService.textToSecondaryRatio }}:1</span
         >
 
-        <span class="text-xl font-[500]">Details</span>
+        <span class="text-lg font-[500]">Details</span>
         <div class="flex items-center justify-between">
           <span>Small text</span>
           <div class="flex items-center gap-2">
-            <span>Pass</span>
-            <div class="px-3 py-1 rounded-[5px] bg-green-900 text-white">
+            <span
+              *ngIf="colorsService.textToSecondaryRatio >= 4.5; else fail"
+              class="text-[#018578]"
+              >Pass</span
+            >
+            <div
+              class="px-3 py-1 rounded-[5px] text-white"
+              [ngClass]="{
+                'bg-[#018578]': colorsService.textToSecondaryRatio >= 4.5,
+                'bg-[#b52546]': colorsService.textToSecondaryRatio < 4.5
+              }"
+            >
               AA
             </div>
           </div>
           <div class="flex items-center gap-2">
-            <span>Pass</span>
-            <div class="px-3 py-1 rounded-[5px] bg-green-900 text-white">
+            <span
+              *ngIf="colorsService.textToSecondaryRatio >= 7; else fail"
+              class="text-[#018578]"
+              >Pass</span
+            >
+            <div
+              class="px-3 py-1 rounded-[5px] bg-[#018578] text-white"
+              [ngClass]="{
+                'bg-[#018578]': colorsService.textToSecondaryRatio >= 7,
+                'bg-[#b52546]': colorsService.textToSecondaryRatio < 7
+              }"
+            >
               AAA
             </div>
           </div>
@@ -89,14 +79,34 @@
         <div class="flex items-center justify-between">
           <span>Large text</span>
           <div class="flex items-center gap-2">
-            <span>Pass</span>
-            <div class="px-3 py-1 rounded-[5px] bg-green-900 text-white">
+            <span
+              *ngIf="colorsService.textToSecondaryRatio >= 3; else fail"
+              class="text-[#018578]"
+              >Pass</span
+            >
+            <div
+              class="px-3 py-1 rounded-[5px] text-white"
+              [ngClass]="{
+                'bg-[#018578]': colorsService.textToSecondaryRatio >= 3,
+                'bg-[#b52546]': colorsService.textToSecondaryRatio < 3
+              }"
+            >
               AA
             </div>
           </div>
           <div class="flex items-center gap-2">
-            <span>Pass</span>
-            <div class="px-3 py-1 rounded-[5px] bg-green-900 text-white">
+            <span
+              *ngIf="colorsService.textToSecondaryRatio >= 4.5; else fail"
+              class="text-[#018578]"
+              >Pass</span
+            >
+            <div
+              class="px-3 py-1 rounded-[5px] text-white"
+              [ngClass]="{
+                'bg-[#018578]': colorsService.textToSecondaryRatio >= 4.5,
+                'bg-[#b52546]': colorsService.textToSecondaryRatio < 4.5
+              }"
+            >
               AAA
             </div>
           </div>
@@ -104,7 +114,7 @@
       </div>
     </div>
     <div
-      class="box-border w-[50%] flex flex-col justify-center items-center text-center gap-2 secondary-color textField p-6 rounded-[10px] rounded-l-none border-2 border-[#e9e8e8]"
+      class="box-border md:w-[50%] w-full flex flex-col justify-center items-center text-center gap-2 secondary-color textField p-6 rounded-[10px] md:rounded-l-none rounded-b-none md:rounded-br-[10px] border-2 border-[#e9e8e8]"
     >
       <span class="text-4xl font-[500]">AAA</span>
       <span class="text-2xl font-[500]">Color contrast check</span>

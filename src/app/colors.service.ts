@@ -13,6 +13,10 @@ export class ColorsService {
   buttonTextColor: string = '#fff';
   formColor: string = '#fff';
 
+  textToBackgroundRatio: number = 0;
+  textToSecondaryRatio: number = 0;
+  buttonTextRatio: number = 0;
+
   changeBackground(color: string) {
     const backgroundColor = document.querySelectorAll(
       '.canvas'
@@ -107,6 +111,14 @@ export class ColorsService {
     ) as NodeListOf<HTMLElement>;
     if (borderColor) borderColor.forEach((e) => (e.style.borderColor = color));
 
+    this.textToBackgroundRatio = this.checkContrast(
+      this.textColor,
+      this.backgroundColor
+    );
+    this.textToSecondaryRatio = this.checkContrast(
+      this.textColor,
+      this.secondaryColor
+    );
     this.saveColors();
   }
 
@@ -121,6 +133,11 @@ export class ColorsService {
       '.buttonColorPicker'
     ) as NodeListOf<HTMLElement>;
     if (buttonColorPicker) buttonColorPicker[0].style.backgroundColor = color;
+
+    this.buttonTextRatio = this.checkContrast(
+      this.buttonTextColor,
+      this.primaryColor
+    );
 
     this.saveColors();
   }
@@ -172,23 +189,10 @@ export class ColorsService {
     }
   }
 
-  checkContrast(
-    color1: string,
-    color2: string,
-    className: string,
-    type: string
-  ) {
+  checkContrast(color1: string, color2: string) {
     let contrast = chroma.contrast(color1, color2);
     contrast = Math.round(contrast * 100) / 100;
-    className = '.' + className;
-    const contrastRatio = document.querySelectorAll(
-      className
-    ) as NodeListOf<HTMLElement>;
-    if (contrast > 4.5) {
-      contrastRatio[0].style.color = '#4BB543';
-    } else {
-      contrastRatio[0].style.color = '#FF0000';
-    }
+
     return contrast;
   }
 

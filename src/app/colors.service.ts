@@ -6,12 +6,12 @@ import * as chroma from 'chroma-js';
 })
 export class ColorsService {
   constructor() {}
-  backgroundColor: string = '#7986CB';
-  primaryColor: string = '#3F51B5';
-  secondaryColor: string = '#1a172c';
-  textColor: string = '#ffffff';
+  backgroundColor: string = '#F8F4EA';
+  primaryColor: string = '#579BB1';
+  secondaryColor: string = '#ECE8DD';
+  textColor: string = '#37474f';
   buttonTextColor: string = '#ffffff';
-  formColor: string = '#ffffff';
+  formColor: string = '#E1D7C6';
 
   textToBackgroundRatio: number = 0;
   textToSecondaryRatio: number = 0;
@@ -54,7 +54,7 @@ export class ColorsService {
 
     // Check if color is light or dark and set proper accent color
     if (chroma.deltaE(color, '#000') < 50) {
-      secondaryAccent = chroma(secondaryAccent).darken(-0.4).css();
+      secondaryAccent = chroma(secondaryAccent).brighten(0.4).css();
     } else {
       secondaryAccent = chroma(secondaryAccent).darken(0.4).css();
     }
@@ -173,12 +173,12 @@ export class ColorsService {
   }
 
   resetColors() {
-    this.backgroundColor = '#7986CB';
-    this.primaryColor = '#3F51B5';
-    this.secondaryColor = '#1a172c';
-    this.textColor = '#fff';
-    this.buttonTextColor = '#fff';
-    this.formColor = '#fff';
+    this.backgroundColor = '#F8F4EA';
+    this.primaryColor = '#579BB1';
+    this.secondaryColor = '#ECE8DD';
+    this.textColor = '#37474f';
+    this.buttonTextColor = '#ffffff';
+    this.formColor = '#F8F4EA';
     this.saveColors();
   }
 
@@ -204,6 +204,12 @@ export class ColorsService {
       this.buttonTextColor = loadedColors.buttonTextColor;
       this.formColor = loadedColors.formColor;
     }
+    this.changeBackground(this.backgroundColor);
+    this.changePrimaryColor(this.primaryColor);
+    this.changeSecondaryColor(this.secondaryColor);
+    this.changeTextColor(this.textColor);
+    this.changeButtonTextColor(this.buttonTextColor);
+    this.changeFormColor(this.formColor);
   }
 
   checkContrast(color1: string, color2: string) {

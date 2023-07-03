@@ -111,7 +111,11 @@
         </svg>
         <span class="tooltiptext">Contrast check</span>
       </button>
-      <button class="tooltip">
+      <button
+        class="tooltip"
+        [ngClass]="{ 'text-[#c92828]': filterService.isFilterActive }"
+        (click)="filterService.isFilterActive = !filterService.isFilterActive"
+      >
         <svg
           class="w-7 h-7"
           fill="none"

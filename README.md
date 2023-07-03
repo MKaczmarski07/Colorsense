@@ -1,4 +1,6 @@
-# Color palette tester
+<img src="./src/assets/Images/logo.svg" width="60px" alt="Logo">
+
+# Colorsense - color accesibility tester
 
 ## Live example 🌐
 
@@ -16,11 +18,19 @@ Would you like to check how the color palette you choose looks like in the most 
 - **Two-way data binding** is handled using Angular's FormsModule.
 - Colors are changed by functions that use native Javascript properties.
 - Color conversion is done using the **chroma.js** library.
+- Simulations of different types of color blindness are achieved using the **color-blind** library
 - UI is mainly done with the **TailwindCSS** framework.
 
 ## Installation Guide ⚙️
 
-This project is based on Angular framework and uses TailwindCSS, ngx-colors and Chroma.js libraries. Here's a step-by-step guide to help you get started with the project.
+This project is based on Angular framework and uses libraries:
+
+- TailwindCSS
+- ngx-colors
+- Chroma.js
+- color-blind
+
+Here's a step-by-step guide to help you get started with the project.
 
 ### Prerequisites
 
@@ -47,3 +57,4 @@ Your application is ready at port 4200.
 
 - The application is publicly available under the MIT license.
 - The project is educational and is not used for commercial purposes.
+- The main algorithm of Color Blindness Simulation used in color-blind library was originally made by Matthew Wickline and the Human-Computer Interaction Resource Network and is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.

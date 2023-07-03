@@ -11,12 +11,5 @@ export class ContrastComponent implements OnInit {
 
   ngOnInit() {
     this.colorsService.loadColors();
-    this.colorsService.changeBackground(this.colorsService.backgroundColor);
-    this.colorsService.changePrimaryColor(this.colorsService.primaryColor);
-    this.colorsService.changeSecondaryColor(this.colorsService.secondaryColor);
-    this.colorsService.changeTextColor(this.colorsService.textColor);
-    this.colorsService.changeButtonTextColor(
-      this.colorsService.buttonTextColor
-    );
   }
 }

@@ -1,5 +1,3 @@
-<img src="./src/assets/Images/logo.svg" width="60px" alt="Logo">
-
 # Colorsense - color accesibility tester
 
 ## Live example 🌐

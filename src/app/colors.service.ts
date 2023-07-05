@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import * as chroma from 'chroma-js';
+import { FilterService } from './filter.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ColorsService {
-  constructor() {}
+  constructor(public filterService: FilterService) {}
   backgroundColor: string = '#F8F4EA';
   primaryColor: string = '#579BB1';
   secondaryColor: string = '#ECE8DD';
@@ -68,6 +69,12 @@ export class ColorsService {
       );
     }
 
+    const secondaryColorPicker = document.querySelectorAll(
+      '.secondaryColorPicker'
+    ) as NodeListOf<HTMLElement>;
+    if (secondaryColorPicker)
+      secondaryColorPicker.forEach((e) => (e.style.backgroundColor = color));
+
     this.textToSecondaryRatio = this.checkContrast(
       this.textColor,
       this.secondaryColor
@@ -88,13 +95,16 @@ export class ColorsService {
       this.primaryColor
     );
 
+    const primaryColorPicker = document.querySelectorAll(
+      '.primaryColorPicker'
+    ) as NodeListOf<HTMLElement>;
+    if (primaryColorPicker)
+      primaryColorPicker.forEach((e) => (e.style.backgroundColor = color));
+
     this.saveColors();
   }
 
   changeTextColor(color: string) {
-    // if no color is passed, default color is white
-    if (color.length === 0) color = 'white';
-    // change text color of all text fields
     const textField = document.querySelectorAll(
       '.textField'
     ) as NodeListOf<HTMLElement>;
@@ -195,6 +205,8 @@ export class ColorsService {
   }
 
   loadColors() {
+    if (this.filterService.isFilterActive) {
+    }
     let loadedColors = JSON.parse(localStorage.getItem('colors')!);
     if (loadedColors) {
       this.backgroundColor = loadedColors.backgroundColor;
@@ -218,17 +230,4 @@ export class ColorsService {
 
     return contrast;
   }
-
-  // saveSettings() {
-  //   let settings = {
-  //   };
-  //   localStorage.setItem('settings', JSON.stringify(settings));
-  // }
-
-  // loadSettings() {
-  //   let loadedSettings = JSON.parse(localStorage.getItem('settings')!);
-  //   if (loadedSettings) {
-
-  //   }
-  // }
 }

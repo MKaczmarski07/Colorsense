@@ -23,7 +23,7 @@
         <span class="tooltiptext mt-[0.3rem]">Background</span>
       </button>
       <button
-        class="w-8 h-8 cursor-pointer primary-color rounded-full picker tooltip"
+        class="w-8 h-8 cursor-pointer primaryColorPicker rounded-full picker tooltip"
         ngx-colors-trigger
         [(ngModel)]="colorsService.primaryColor"
         (ngModelChange)="
@@ -33,7 +33,7 @@
         <span class="tooltiptext mt-[0.3rem]">Primary</span>
       </button>
       <button
-        class="w-8 h-8 cursor-pointer secondary-color rounded-full picker tooltip"
+        class="w-8 h-8 cursor-pointer secondaryColorPicker rounded-full picker tooltip"
         ngx-colors-trigger
         [(ngModel)]="colorsService.secondaryColor"
         (ngModelChange)="
@@ -114,7 +114,7 @@
       <button
         class="tooltip"
         [ngClass]="{ 'text-[#c92828]': filterService.isFilterActive }"
-        (click)="filterService.isFilterActive = !filterService.isFilterActive"
+        (click)="filterService.applyFilter()"
       >
         <svg
           class="w-7 h-7"

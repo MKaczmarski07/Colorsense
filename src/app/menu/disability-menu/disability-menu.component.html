@@ -1,0 +1,26 @@
+<div class="flex flex-col gap-6 p-6 items-start">
+  <span class="text-2xl font-[500]">Colorblindness type</span>
+  <button>
+    <span class="font-[500]" (click)="filterService.applyFilter('Normal')"
+      >Normal vision</span
+    >
+  </button>
+  <button (click)="filterService.applyFilter('Deuteranomaly')">
+    <span class="font-[500]">Deuteranomaly</span> (Most Common)
+  </button>
+  <button (click)="filterService.applyFilter('Protanomaly')">
+    <span class="font-[500]">Protanomaly</span> (Less Common)
+  </button>
+  <button (click)="filterService.applyFilter('Protanopia')">
+    <span class="font-[500]">Protanopia</span> (Less Common)
+  </button>
+  <button (click)="filterService.applyFilter('Tritanomaly')">
+    <span class="font-[500]">Tritanomaly</span> (Rare)
+  </button>
+  <button (click)="filterService.applyFilter('Tritanopia')">
+    <span class="font-[500]">Tritanopia</span> (Rare)
+  </button>
+  <button (click)="filterService.applyFilter('Achromatopsia')">
+    <span class="font-[500]">Achromatopsia</span> (Very Rare)
+  </button>
+</div>

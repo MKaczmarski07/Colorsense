@@ -114,7 +114,6 @@
       <button
         class="tooltip"
         [ngClass]="{ 'text-[#c92828]': filterService.isFilterActive }"
-        (click)="filterService.applyFilter()"
       >
         <svg
           class="w-7 h-7"
@@ -164,3 +163,6 @@
     </div>
   </div>
 </nav>
+<app-disability-menu
+  class="bg-white rounded-[10px] border-2 border-slate-200 absolute top-26 md:top-14 right-2 bg-opacity-80 backdrop-blur-lg"
+></app-disability-menu>

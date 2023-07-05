@@ -6,7 +6,7 @@ import * as chroma from 'chroma-js';
 })
 export class FilterService {
   constructor() {}
-
+  isMenuVisible: boolean = false;
   isFilterActive: boolean = false;
   blinder = require('color-blind');
   filteredColors = {
@@ -113,16 +113,25 @@ export class FilterService {
       );
   }
 
-  applyFilter() {
-    this.isFilterActive = !this.isFilterActive;
-    this.saveSettings();
-    if (this.isFilterActive) {
-      this.changeDisabilityType('Tritanomaly');
-      this.changeDisplayedColors();
-    } else {
+  applyFilter(type: string) {
+    if (type === 'Normal') {
+      this.isFilterActive = false;
       this.filteredColors = JSON.parse(localStorage.getItem('colors')!);
+      this.saveSettings();
       this.saveFilteredColors();
       this.changeDisplayedColors();
+      return;
+    } else {
+      this.isFilterActive = true;
+      this.saveSettings();
+      if (this.isFilterActive) {
+        this.changeDisabilityType(type);
+        this.changeDisplayedColors();
+      } else {
+        this.filteredColors = JSON.parse(localStorage.getItem('colors')!);
+        this.saveFilteredColors();
+        this.changeDisplayedColors();
+      }
     }
   }
 

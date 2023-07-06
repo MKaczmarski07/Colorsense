@@ -91,7 +91,7 @@
             d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"
           ></path>
         </svg>
-        <span class="tooltiptext">Elements</span>
+        <span class="tooltiptext">UI Elements</span>
       </button>
       <button class="tooltip" routerLink="/contrast">
         <svg
@@ -109,11 +109,12 @@
             d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z"
           ></path>
         </svg>
-        <span class="tooltiptext">Contrast check</span>
+        <span class="tooltiptext">Contrast Check</span>
       </button>
       <button
         class="tooltip"
         [ngClass]="{ 'text-[#c92828]': filterService.isFilterActive }"
+        (click)="filterService.isMenuVisible = !filterService.isMenuVisible"
       >
         <svg
           class="w-7 h-7"
@@ -135,7 +136,7 @@
             d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
           ></path>
         </svg>
-        <span class="tooltiptext"> Disability filter</span>
+        <span class="tooltiptext">Disability Filter</span>
       </button>
       <button class="tooltip" (click)="colorsService.resetColors()">
         <svg
@@ -153,7 +154,7 @@
             d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
           ></path>
         </svg>
-        <span class="tooltiptext">Reset palette</span>
+        <span class="tooltiptext">Reset Palette</span>
       </button>
       <button
         class="bg-[#2C3439] text-white px-4 py-2 rounded-md text-sm font-medium"
@@ -164,5 +165,7 @@
   </div>
 </nav>
 <app-disability-menu
-  class="bg-white rounded-[10px] border-2 border-slate-200 absolute top-26 md:top-14 right-2 bg-opacity-80 backdrop-blur-lg"
+  [@showMenu]
+  *ngIf="filterService.isMenuVisible"
+  class="disabilityMenu bg-white rounded-[10px] border-2 border-slate-200 absolute top-[6.5rem] md:top-14 right-2 bg-opacity-80 backdrop-blur-lg"
 ></app-disability-menu>

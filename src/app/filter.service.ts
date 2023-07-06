@@ -8,6 +8,7 @@ export class FilterService {
   constructor() {}
   isMenuVisible: boolean = false;
   isFilterActive: boolean = false;
+  selectedDisability: string = 'normal';
   blinder = require('color-blind');
   filteredColors = {
     backgroundColor: '',
@@ -114,9 +115,10 @@ export class FilterService {
   }
 
   applyFilter(type: string) {
-    if (type === 'Normal') {
+    if (type === 'normal') {
       this.isFilterActive = false;
       this.filteredColors = JSON.parse(localStorage.getItem('colors')!);
+      this.selectedDisability = type;
       this.saveSettings();
       this.saveFilteredColors();
       this.changeDisplayedColors();
@@ -146,6 +148,7 @@ export class FilterService {
 
   changeDisabilityType(disability: string) {
     disability = disability.toLowerCase().trim();
+    this.selectedDisability = disability;
     let baseColors = JSON.parse(localStorage.getItem('colors')!);
     this.filteredColors = {
       backgroundColor: this.blinder[disability](baseColors.backgroundColor),

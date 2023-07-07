@@ -113,8 +113,11 @@
       </button>
       <button
         class="tooltip"
-        [ngClass]="{ 'text-[#c92828]': filterService.isFilterActive }"
-        (click)="filterService.isMenuVisible = !filterService.isMenuVisible"
+        [ngClass]="{
+          'text-[#c92828]': filterService.isFilterActive,
+          'text-[#949494]': !filterService.isFilterAvinable
+        }"
+        (click)="filterService.showMenu()"
       >
         <svg
           class="w-7 h-7"

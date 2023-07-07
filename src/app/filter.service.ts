@@ -8,6 +8,7 @@ export class FilterService {
   constructor() {}
   isMenuVisible: boolean = false;
   isFilterActive: boolean = false;
+  isFilterAvinable: boolean = true;
   selectedDisability: string = 'normal';
   blinder = require('color-blind');
   filteredColors = {
@@ -21,19 +22,6 @@ export class FilterService {
 
   saveFilteredColors() {
     localStorage.setItem('filteredColors', JSON.stringify(this.filteredColors));
-  }
-
-  saveSettings() {
-    let settings = {
-      isFilterActive: this.isFilterActive,
-    };
-    localStorage.setItem('settings', JSON.stringify(settings));
-  }
-
-  loadSettings() {
-    let loadedSettings = JSON.parse(localStorage.getItem('settings')!);
-    if (loadedSettings) {
-    }
   }
 
   changeDisplayedColors() {
@@ -119,13 +107,11 @@ export class FilterService {
       this.isFilterActive = false;
       this.filteredColors = JSON.parse(localStorage.getItem('colors')!);
       this.selectedDisability = type;
-      this.saveSettings();
       this.saveFilteredColors();
       this.changeDisplayedColors();
       return;
     } else {
       this.isFilterActive = true;
-      this.saveSettings();
       if (this.isFilterActive) {
         this.changeDisabilityType(type);
         this.changeDisplayedColors();
@@ -160,5 +146,11 @@ export class FilterService {
     };
     this.saveFilteredColors();
     this.changeDisplayedColors();
+  }
+
+  showMenu() {
+    if (this.isFilterAvinable) {
+      this.isMenuVisible = !this.isMenuVisible;
+    }
   }
 }

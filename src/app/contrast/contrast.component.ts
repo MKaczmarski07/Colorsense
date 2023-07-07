@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ColorsService } from '../colors.service';
+import { FilterService } from '../filter.service';
 
 @Component({
   selector: 'app-contrast',
@@ -7,9 +8,14 @@ import { ColorsService } from '../colors.service';
   styleUrls: ['./contrast.component.scss'],
 })
 export class ContrastComponent implements OnInit {
-  constructor(public colorsService: ColorsService) {}
+  constructor(
+    public colorsService: ColorsService,
+    public filterService: FilterService
+  ) {}
 
   ngOnInit() {
     this.colorsService.loadColors();
+    this.filterService.isFilterAvinable = false;
+    this.filterService.isFilterActive = false;
   }
 }

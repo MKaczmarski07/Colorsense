@@ -23,26 +23,25 @@ export class GeneratorService {
       this.colors.backgroundColor = chroma(this.colors.backgroundColor)
         .desaturate(2)
         .hex();
-      console.log(chroma(this.colors.backgroundColor).get('hsl.s'));
     }
 
     // check if the color is light or dark
     if (chroma.deltaE(this.colors.backgroundColor, '#000') < 50) {
       this.colors.secondaryColor = chroma(this.colors.backgroundColor)
         .brighten(0.4)
-        .css();
+        .hex();
       this.colors.textColor = '#fff';
       this.colors.formColor = chroma(this.colors.backgroundColor)
         .brighten(0.2)
-        .css();
+        .hex();
     } else {
       this.colors.secondaryColor = chroma(this.colors.backgroundColor)
         .darken(0.4)
-        .css();
+        .hex();
       this.colors.textColor = '#000';
       this.colors.formColor = chroma(this.colors.backgroundColor)
         .darken(0.2)
-        .css();
+        .hex();
     }
 
     this.colors.primaryColor = this.findComplementaryColor(
@@ -57,22 +56,25 @@ export class GeneratorService {
     this.checkGeneratedColors();
   }
 
-  changeColors(colors: object) {
-    localStorage.setItem('colors', JSON.stringify(colors));
-    this.colorsService.loadColors();
-  }
-
   checkGeneratedColors() {
-    if (
-      this.colorsService.checkContrast(
-        this.colors.backgroundColor,
-        this.colors.textColor
-      ) < 7
-    ) {
-      console.log('text to background ratio is too low');
-    } else {
-      this.changeColors(this.colors);
-    }
+    const checkContrast = setInterval(() => {
+      if (
+        this.colorsService.checkContrast(
+          this.colors.secondaryColor,
+          this.colors.textColor
+        ) > 7 &&
+        this.colorsService.checkContrast(
+          this.colors.primaryColor,
+          this.colors.buttonTextColor
+        ) > 7
+      ) {
+        clearInterval(checkContrast);
+        this.changeColors(this.colors);
+      } else {
+        this.generateColors();
+        console.log('checking contrast');
+      }
+    }, 1);
   }
 
   findComplementaryColor(color: string) {
@@ -89,5 +91,10 @@ export class GeneratorService {
       Math.round(complementaryColor[2] * 255),
     ];
     return chroma(complementaryColor).hex();
+  }
+
+  changeColors(colors: object) {
+    localStorage.setItem('colors', JSON.stringify(colors));
+    this.colorsService.loadColors();
   }
 }

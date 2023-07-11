@@ -131,13 +131,18 @@ export class ColorsService {
     ) as NodeListOf<HTMLElement>;
     if (textPicker) textPicker.forEach((e) => (e.style.background = color));
 
+    //change color of text in the form
+    const placeholderColor = document.querySelectorAll(
+      '.formColor'
+    ) as NodeListOf<HTMLElement>;
+    if (placeholderColor)
+      placeholderColor.forEach((e) => (e.style.color = color));
+
     // Change color of the borders
     const borderColor = document.querySelectorAll(
       '.borderColor'
     ) as NodeListOf<HTMLElement>;
     if (borderColor) borderColor.forEach((e) => (e.style.borderColor = color));
-
-    // change color of the placeholder
 
     this.textToBackgroundRatio = this.checkContrast(
       this.textColor,
@@ -160,7 +165,8 @@ export class ColorsService {
     const buttonColorPicker = document.querySelectorAll(
       '.buttonColorPicker'
     ) as NodeListOf<HTMLElement>;
-    if (buttonColorPicker) buttonColorPicker[0].style.backgroundColor = color;
+    if (buttonColorPicker)
+      buttonColorPicker.forEach((e) => (e.style.backgroundColor = color));
 
     this.buttonTextRatio = this.checkContrast(
       this.buttonTextColor,
@@ -179,6 +185,15 @@ export class ColorsService {
       '.formColorPicker'
     ) as NodeListOf<HTMLElement>;
     if (formColorPicker) formColorPicker[0].style.backgroundColor = color;
+
+    // change placeholders
+    if (chroma.deltaE(color, '#000') < 50) {
+      formColor.forEach((e) => e.classList.remove('light'));
+      formColor.forEach((e) => e.classList.add('dark'));
+    } else {
+      formColor.forEach((e) => e.classList.remove('dark'));
+      formColor.forEach((e) => e.classList.add('light'));
+    }
 
     this.saveColors();
   }

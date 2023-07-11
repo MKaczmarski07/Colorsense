@@ -118,7 +118,6 @@ export class ColorsService {
     }
     // make textAccentColor 70% opacity of text color
     textAccent = chroma(textAccent).darken(0.9).css();
-    console.log(textAccent);
     const textAccentColor = document.querySelectorAll(
       '.textAccent'
     ) as NodeListOf<HTMLElement>;
@@ -137,6 +136,8 @@ export class ColorsService {
       '.borderColor'
     ) as NodeListOf<HTMLElement>;
     if (borderColor) borderColor.forEach((e) => (e.style.borderColor = color));
+
+    // change color of the placeholder
 
     this.textToBackgroundRatio = this.checkContrast(
       this.textColor,

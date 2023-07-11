@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ColorsService } from '../colors.service';
 import { FilterService } from '../filter.service';
+import { GeneratorService } from '../generator.service';
 import { style, trigger, animate, transition } from '@angular/animations';
 
 @Component({
@@ -35,7 +36,8 @@ import { style, trigger, animate, transition } from '@angular/animations';
 export class MenuComponent implements OnInit {
   constructor(
     public colorsService: ColorsService,
-    public filterService: FilterService
+    public filterService: FilterService,
+    public generatorService: GeneratorService
   ) {}
 
   ngOnInit() {

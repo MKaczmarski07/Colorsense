@@ -101,6 +101,27 @@ export class ColorsService {
     if (primaryColorPicker)
       primaryColorPicker.forEach((e) => (e.style.backgroundColor = color));
 
+    let primaryAccent = primaryColor[0].style.backgroundColor;
+
+    // if color is in the form of text (e.g. 'white'), convert it to rgb
+    if (!primaryAccent.startsWith('rgb')) {
+      primaryAccent = chroma(primaryAccent).css();
+    }
+
+    // Check if color is light or dark and set proper accent color
+    if (chroma.deltaE(color, '#000') < 50) {
+      primaryAccent = chroma(primaryAccent).brighten(0.6).css();
+    } else {
+      primaryAccent = chroma(primaryAccent).darken(0.6).css();
+    }
+
+    const primaryAccentColor = document.querySelectorAll(
+      '.primaryAccent'
+    ) as NodeListOf<HTMLElement>;
+    if (primaryAccentColor) {
+      primaryAccentColor.forEach((e) => (e.style.color = primaryAccent));
+    }
+
     this.saveColors();
   }
 

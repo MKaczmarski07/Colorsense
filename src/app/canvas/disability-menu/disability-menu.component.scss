@@ -1,0 +1,20 @@
+.menueVisible {
+  transform: translateX(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.DisabilityType {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: baseline;
+}
+
+.DisabilityType:not(.selected):hover {
+  background-color: #c5c7c7;
+}
+
+.selected {
+  background-color: #1dbaad;
+}

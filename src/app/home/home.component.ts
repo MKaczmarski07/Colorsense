@@ -8,9 +8,4 @@ import { FilterService } from '../filter.service';
 })
 export class HomeComponent {
   constructor(public filterService: FilterService) {}
-
-  ngOnInit() {
-    this.filterService.isFilterAvinable = false;
-    this.filterService.isFilterActive = false;
-  }
 }

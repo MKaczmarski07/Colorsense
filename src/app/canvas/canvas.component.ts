@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ColorsService } from '../colors.service';
 import { FilterService } from '../filter.service';
-
 @Component({
   selector: 'app-canvas',
   templateUrl: './canvas.component.html',
@@ -15,7 +14,6 @@ export class CanvasComponent implements OnInit {
 
   ngOnInit() {
     this.colorsService.loadColors();
-    this.filterService.isFilterAvinable = true;
     this.filterService.selectedDisability = 'normal';
   }
 }

@@ -15,7 +15,5 @@ export class ContrastComponent implements OnInit {
 
   ngOnInit() {
     this.colorsService.loadColors();
-    this.filterService.isFilterAvinable = false;
-    this.filterService.isFilterActive = false;
   }
 }

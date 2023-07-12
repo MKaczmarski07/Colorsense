@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ContrastComponent } from './contrast/contrast.component';
-import { DisabilityMenuComponent } from './menu/disability-menu/disability-menu.component';
+import { DisabilityMenuComponent } from './canvas/disability-menu/disability-menu.component';
 
 @NgModule({
   declarations: [

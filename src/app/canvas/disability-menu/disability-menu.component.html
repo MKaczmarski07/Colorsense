@@ -1,0 +1,99 @@
+<div
+  class="disabilityMenu transform transition-all duration-300 flex fixed top-[6.5rem] md:top-14 right-2 translate-x-[90%]"
+>
+  <div>
+    <button
+      class="bg-[#1dbaad] text-black p-2 rounded-l-[10px] border-2 border-r-0 border-slate-400"
+      (click)="showMenu()"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+        ></path>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+        ></path>
+      </svg>
+    </button>
+  </div>
+  <div
+    class="flex flex-col gap-3 p-6 items-start bg-white rounded-[10px] rounded-tl-none border-2 border-slate-200 bg-opacity-80 backdrop-blur-lg"
+  >
+    <span class="text-2xl font-[500]">Colorblindness type</span>
+    <button
+      class="DisabilityType"
+      [ngClass]="{
+        selected: filterService.selectedDisability === 'normal'
+      }"
+      (click)="filterService.applyFilter('normal')"
+    >
+      <span class="font-[500]">Normal vision</span>
+    </button>
+    <button
+      (click)="filterService.applyFilter('deuteranomaly')"
+      class="DisabilityType"
+      [ngClass]="{
+        selected: filterService.selectedDisability === 'deuteranomaly'
+      }"
+    >
+      <span class="font-[500]">Deuteranomaly</span> (Most Common)
+    </button>
+    <button
+      (click)="filterService.applyFilter('protanomaly')"
+      class="DisabilityType"
+      [ngClass]="{
+        selected: filterService.selectedDisability === 'protanomaly'
+      }"
+    >
+      <span class="font-[500]">Protanomaly</span> (Less Common)
+    </button>
+    <button
+      (click)="filterService.applyFilter('protanopia')"
+      class="DisabilityType"
+      [ngClass]="{
+        selected: filterService.selectedDisability === 'protanopia'
+      }"
+    >
+      <span class="font-[500]">Protanopia</span> (Less Common)
+    </button>
+    <button
+      (click)="filterService.applyFilter('tritanomaly')"
+      class="DisabilityType"
+      [ngClass]="{
+        selected: filterService.selectedDisability === 'tritanomaly'
+      }"
+    >
+      <span class="font-[500]">Tritanomaly</span> (Rare)
+    </button>
+    <button
+      (click)="filterService.applyFilter('tritanopia')"
+      class="DisabilityType"
+      [ngClass]="{
+        selected: filterService.selectedDisability === 'tritanopia'
+      }"
+    >
+      <span class="font-[500]">Tritanopia</span> (Rare)
+    </button>
+    <button
+      (click)="filterService.applyFilter('achromatopsia')"
+      class="DisabilityType"
+      [ngClass]="{
+        selected: filterService.selectedDisability === 'achromatopsia'
+      }"
+    >
+      <span class="font-[500]">Achromatopsia</span> (Very Rare)
+    </button>
+  </div>
+</div>

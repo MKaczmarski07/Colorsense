@@ -8,4 +8,13 @@ import { FilterService } from '../filter.service';
 })
 export class HomeComponent {
   constructor(public filterService: FilterService) {}
+
+  scrollDown() {
+    const point = document.querySelector('.scroll-point');
+    if (point) {
+      point.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  }
 }

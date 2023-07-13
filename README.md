@@ -17,7 +17,7 @@ Would you like to check how the color palette you choose looks like in the most 
 - Colors are changed by functions that use native Javascript properties.
 - Color conversion is done using the **chroma.js** library.
 - Simulations of different types of color blindness are achieved using the **color-blind** library
-- UI is mainly done with the **TailwindCSS** framework.
+- UI is mainly done with the **TailwindCSS** framework and **SCSS**.
 
 ## Installation Guide ⚙️
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
 import { ColorsService } from '../colors.service';
 import { FilterService } from '../filter.service';
 @Component({
@@ -9,11 +10,16 @@ import { FilterService } from '../filter.service';
 export class CanvasComponent implements OnInit {
   constructor(
     public colorsService: ColorsService,
-    public filterService: FilterService
+    public filterService: FilterService,
+    private viewportScroller: ViewportScroller
   ) {}
 
   ngOnInit() {
     this.colorsService.loadColors();
     this.filterService.selectedDisability = 'normal';
+  }
+
+  ngAfterViewInit() {
+    this.viewportScroller.scrollToPosition([0, 0]);
   }
 }

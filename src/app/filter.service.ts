@@ -20,8 +20,60 @@ export class FilterService {
     formColor: '',
   };
 
+  showMenu() {
+    if (this.isFilterAvinable) {
+      this.isMenuVisible = !this.isMenuVisible;
+    }
+  }
+
   saveFilteredColors() {
     localStorage.setItem('filteredColors', JSON.stringify(this.filteredColors));
+  }
+
+  applyFilter(type: string) {
+    if (type === 'normal') {
+      this.isFilterActive = false;
+      this.filteredColors = JSON.parse(localStorage.getItem('colors')!);
+      this.selectedDisability = type;
+      this.saveFilteredColors();
+      this.changeDisplayedColors();
+      return;
+    } else {
+      this.isFilterActive = true;
+      if (this.isFilterActive) {
+        this.changeDisabilityType(type);
+        this.changeDisplayedColors();
+      } else {
+        this.filteredColors = JSON.parse(localStorage.getItem('colors')!);
+        this.saveFilteredColors();
+        this.changeDisplayedColors();
+      }
+    }
+  }
+
+  loadFilteredColors() {
+    let loadedFilteredColors = JSON.parse(
+      localStorage.getItem('filteredColors')!
+    );
+    if (loadedFilteredColors) {
+      this.filteredColors = loadedFilteredColors;
+    }
+  }
+
+  changeDisabilityType(disability: string) {
+    disability = disability.toLowerCase().trim();
+    this.selectedDisability = disability;
+    let baseColors = JSON.parse(localStorage.getItem('colors')!);
+    this.filteredColors = {
+      backgroundColor: this.blinder[disability](baseColors.backgroundColor),
+      primaryColor: this.blinder[disability](baseColors.primaryColor),
+      secondaryColor: this.blinder[disability](baseColors.secondaryColor),
+      textColor: this.blinder[disability](baseColors.textColor),
+      buttonTextColor: this.blinder[disability](baseColors.buttonTextColor),
+      formColor: this.blinder[disability](baseColors.formColor),
+    };
+    this.saveFilteredColors();
+    this.changeDisplayedColors();
   }
 
   changeDisplayedColors() {
@@ -42,6 +94,22 @@ export class FilterService {
       primaryColor.forEach(
         (e) => (e.style.backgroundColor = this.filteredColors.primaryColor)
       );
+    let primaryAccent = primaryColor[0].style.backgroundColor;
+
+    // Check if color is light or dark and set proper accent color
+    if (chroma.deltaE(this.filteredColors.primaryColor, '#000') < 50) {
+      primaryAccent = chroma(primaryAccent).brighten(0.6).css();
+    } else {
+      primaryAccent = chroma(primaryAccent).darken(0.6).css();
+    }
+
+    const primaryAccentColor = document.querySelectorAll(
+      '.primaryAccent'
+    ) as NodeListOf<HTMLElement>;
+    if (primaryAccentColor) {
+      primaryAccentColor.forEach((e) => (e.style.color = primaryAccent));
+    }
+
     // change secondary color
     const secondaryColor = document.querySelectorAll(
       '.secondary-color'
@@ -100,57 +168,5 @@ export class FilterService {
       formColor.forEach(
         (e) => (e.style.backgroundColor = this.filteredColors.formColor)
       );
-  }
-
-  applyFilter(type: string) {
-    if (type === 'normal') {
-      this.isFilterActive = false;
-      this.filteredColors = JSON.parse(localStorage.getItem('colors')!);
-      this.selectedDisability = type;
-      this.saveFilteredColors();
-      this.changeDisplayedColors();
-      return;
-    } else {
-      this.isFilterActive = true;
-      if (this.isFilterActive) {
-        this.changeDisabilityType(type);
-        this.changeDisplayedColors();
-      } else {
-        this.filteredColors = JSON.parse(localStorage.getItem('colors')!);
-        this.saveFilteredColors();
-        this.changeDisplayedColors();
-      }
-    }
-  }
-
-  loadFilteredColors() {
-    let loadedFilteredColors = JSON.parse(
-      localStorage.getItem('filteredColors')!
-    );
-    if (loadedFilteredColors) {
-      this.filteredColors = loadedFilteredColors;
-    }
-  }
-
-  changeDisabilityType(disability: string) {
-    disability = disability.toLowerCase().trim();
-    this.selectedDisability = disability;
-    let baseColors = JSON.parse(localStorage.getItem('colors')!);
-    this.filteredColors = {
-      backgroundColor: this.blinder[disability](baseColors.backgroundColor),
-      primaryColor: this.blinder[disability](baseColors.primaryColor),
-      secondaryColor: this.blinder[disability](baseColors.secondaryColor),
-      textColor: this.blinder[disability](baseColors.textColor),
-      buttonTextColor: this.blinder[disability](baseColors.buttonTextColor),
-      formColor: this.blinder[disability](baseColors.formColor),
-    };
-    this.saveFilteredColors();
-    this.changeDisplayedColors();
-  }
-
-  showMenu() {
-    if (this.isFilterAvinable) {
-      this.isMenuVisible = !this.isMenuVisible;
-    }
   }
 }

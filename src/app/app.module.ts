@@ -12,6 +12,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ContrastComponent } from './contrast/contrast.component';
 import { DisabilityMenuComponent } from './canvas/disability-menu/disability-menu.component';
+import { PaletteComponent } from './palette/palette.component';
+import { ColorContainerComponent } from './palette/color-container/color-container.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { DisabilityMenuComponent } from './canvas/disability-menu/disability-men
     HomeComponent,
     ContrastComponent,
     DisabilityMenuComponent,
+    PaletteComponent,
+    ColorContainerComponent,
   ],
   imports: [
     BrowserModule,

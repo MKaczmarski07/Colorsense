@@ -205,7 +205,8 @@ export class ColorsService {
     const formColorPicker = document.querySelectorAll(
       '.formColorPicker'
     ) as NodeListOf<HTMLElement>;
-    if (formColorPicker) formColorPicker[0].style.backgroundColor = color;
+    if (formColorPicker)
+      formColorPicker.forEach((e) => (e.style.backgroundColor = color));
 
     // change placeholders
     if (chroma.deltaE(color, '#000') < 50) {

@@ -1,0 +1,28 @@
+<div
+  class="md:min-h-[calc(100svh-3rem)] min-h-[calc(100svh-5.5rem)] h-full grid grid-cols-6"
+>
+  <app-color-container
+    class="canvas"
+    [color]="colorsService.backgroundColor"
+  ></app-color-container>
+  <app-color-container
+    class="secondary-color"
+    [color]="colorsService.secondaryColor"
+  ></app-color-container>
+  <app-color-container
+    class="formColorPicker"
+    [color]="colorsService.formColor"
+  ></app-color-container>
+  <app-color-container
+    class="primary-color"
+    [color]="colorsService.primaryColor"
+  ></app-color-container>
+  <app-color-container
+    class="textPicker"
+    [color]="colorsService.textColor"
+  ></app-color-container>
+  <app-color-container
+    class="buttonColorPicker"
+    [color]="colorsService.buttonTextColor"
+  ></app-color-container>
+</div>

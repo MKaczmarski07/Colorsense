@@ -3,3 +3,53 @@
     display: none;
   }
 }
+
+.contrast-checker {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+
+  @media (min-width: 900px) {
+    flex-direction: row;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 1280px) {
+    width: 75%;
+  }
+}
+
+.right-half {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  border: 2px #e9e8e8 solid;
+  border-radius: 10px 10px 0 0;
+
+  @media (min-width: 900px) {
+    width: 50%;
+    border-radius: 0 10px 10px 0;
+  }
+}
+
+.left-half {
+  border-radius: 0 0 10px 10px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1.5rem;
+  border: 2px #e9e8e8 solid;
+  border-top: none;
+
+  @media (min-width: 900px) {
+    width: 50%;
+    border-radius: 10px 0 0 10px;
+    border-right: none;
+    border-top: 2px #e9e8e8 solid;
+  }
+}

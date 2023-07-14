@@ -17,6 +17,7 @@ export class CanvasComponent implements OnInit {
   ngOnInit() {
     this.colorsService.loadColors();
     this.filterService.selectedDisability = 'normal';
+    this.filterService.isFilterActive = false;
   }
 
   ngAfterViewInit() {

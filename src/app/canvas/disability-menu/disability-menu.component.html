@@ -3,8 +3,9 @@
 >
   <div>
     <button
-      class="bg-[#1dbaad] text-black p-2 rounded-l-[10px] border-2 border-r-0 border-slate-200"
+      class="bg-[#2C3439] text-white p-2 rounded-l-[10px] border-2 border-r-0 border-slate-200"
       (click)="showMenu()"
+      [ngClass]="{ 'text-[#2fe1d2]': filterService.isFilterActive }"
     >
       <svg
         class="w-6 h-6"
@@ -29,7 +30,7 @@
     </button>
   </div>
   <div
-    class="flex flex-col gap-3 p-6 items-start bg-white rounded-[10px] rounded-tl-none border-2 border-slate-200 bg-opacity-80 backdrop-blur-lg"
+    class="flex flex-col gap-3 p-6 items-start bg-white rounded-[10px] rounded-tl-none border-2 border-slate-200 bg-opacity-90 backdrop-blur-lg"
   >
     <span class="text-2xl font-[500]">Colorblindness type</span>
     <button

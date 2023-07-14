@@ -26,7 +26,11 @@ export class ColorContainerComponent implements OnInit {
   }
 
   calculateBrightness(color: string): string {
-    return chroma.deltaE(color, '#000') < 50 ? '#ffffff' : '#000000';
+    if (chroma.deltaE(color, '#000') < 50) {
+      return '#ffffff';
+    } else {
+      return '#000000';
+    }
   }
 
   CopyToClipboard() {

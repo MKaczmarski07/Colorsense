@@ -130,7 +130,7 @@
         </svg>
         <span class="tooltiptext">Contrast Check</span>
       </button>
-      <button class="tooltip">
+      <button class="tooltip" (click)="generatorService.isCongigOpen = true">
         <svg
           class="h-7 w-7"
           fill="none"
@@ -152,7 +152,7 @@
           ></path>
         </svg>
 
-        <span class="tooltiptext">Generator options</span>
+        <span class="tooltiptext">Generate method</span>
       </button>
       <button
         class="bg-[#2C3439] text-white px-4 py-2 rounded-md text-sm font-medium"
@@ -163,4 +163,5 @@
     </div>
   </div>
 </nav>
+<app-generator *ngIf="generatorService.isCongigOpen"></app-generator>
 <div class="canvas primary-color secondary-color textField button-text"></div>

@@ -1,0 +1,15 @@
+.generator-button {
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  transition: all 100ms ease-in-out;
+}
+
+.generator-button:not(.selected):hover {
+  background-color: #ededed;
+}
+
+.selected {
+  background-color: #1dbaad;
+  background-color: #1dbaad39;
+  color: #0b615a;
+}

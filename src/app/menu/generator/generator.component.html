@@ -1,0 +1,83 @@
+<div
+  class="fixed top-0 left-0 w-full h-full flex items-center justify-center z-20 px-6"
+>
+  <div
+    [@dialog]
+    class="bg-white p-6 rounded-[10px] dialog z-20 flex flex-col gap-6 items-center justify-center sm:w-[20rem] w-full"
+  >
+    <div class="flex w-full justify-between items-center">
+      <h1 class="text-xl font-medium">Generate Method</h1>
+      <svg
+        (click)="generatorService.isCongigOpen = false"
+        class="w-6 h-6 cursor-pointer"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        ></path>
+      </svg>
+    </div>
+    <div class="flex flex-col gap-3 w-full">
+      <button
+        class="flex justify-start generator-button"
+        (click)="
+          generatorService.generateMethod = 'complementary';
+          generatorService.isCongigOpen = false
+        "
+        [ngClass]="{
+          selected: generatorService.generateMethod === 'complementary'
+        }"
+      >
+        <span>Complementary</span>
+      </button>
+      <button
+        class="flex justify-start generator-button"
+        (click)="
+          generatorService.generateMethod = 'monochromatic';
+          generatorService.isCongigOpen = false
+        "
+        [ngClass]="{
+          selected: generatorService.generateMethod === 'monochromatic'
+        }"
+      >
+        <span>Monochromatic</span>
+      </button>
+      <button
+        class="flex justify-start generator-button"
+        (click)="
+          generatorService.generateMethod = 'light';
+          generatorService.isCongigOpen = false
+        "
+        [ngClass]="{
+          selected: generatorService.generateMethod === 'light'
+        }"
+      >
+        <span>Light Palette</span>
+      </button>
+      <button
+        class="flex justify-start generator-button"
+        (click)="
+          generatorService.generateMethod = 'dark';
+          generatorService.isCongigOpen = false
+        "
+        [ngClass]="{
+          selected: generatorService.generateMethod === 'dark'
+        }"
+      >
+        <span>Dark Palette</span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    [@background]
+    class="absolute top-0 left-0 w-full h-full bg-slate-900 bg-opacity-20 flex items-center justify-center z-10"
+  ></div>
+</div>

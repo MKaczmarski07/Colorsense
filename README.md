@@ -53,6 +53,6 @@ Your application is ready at port 4200.
 
 ## License and Copyrights 📜
 
-- The application is publicly available under the MIT license.
+- The application is publicly available under the GNU GENERAL PUBLIC LICENSE.
 - The project is educational and is not used for commercial purposes.
 - The main algorithm of Color Blindness Simulation used in color-blind library was originally made by Matthew Wickline and the Human-Computer Interaction Resource Network and is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.

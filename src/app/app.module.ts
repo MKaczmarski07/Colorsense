@@ -14,6 +14,7 @@ import { ContrastComponent } from './contrast/contrast.component';
 import { DisabilityMenuComponent } from './canvas/disability-menu/disability-menu.component';
 import { PaletteComponent } from './palette/palette.component';
 import { ColorContainerComponent } from './palette/color-container/color-container.component';
+import { GeneratorComponent } from './menu/generator/generator.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ColorContainerComponent } from './palette/color-container/color-contain
     DisabilityMenuComponent,
     PaletteComponent,
     ColorContainerComponent,
+    GeneratorComponent,
   ],
   imports: [
     BrowserModule,

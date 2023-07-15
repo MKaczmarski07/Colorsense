@@ -7,6 +7,9 @@ import { ColorsService } from './colors.service';
 })
 export class GeneratorService {
   constructor(private colorsService: ColorsService) {}
+  isCongigOpen = false;
+  generateMethod: 'complementary' | 'monochromatic' | 'light' | 'dark' =
+    'complementary';
   colors = {
     backgroundColor: '',
     primaryColor: '',
@@ -17,16 +20,81 @@ export class GeneratorService {
   };
 
   generateColors() {
-    this.colors.backgroundColor = chroma.random().hex();
-    // check saturation
-    if (chroma(this.colors.backgroundColor).get('hsl.s') > 0.5) {
-      this.colors.backgroundColor = chroma(this.colors.backgroundColor)
-        .desaturate(2)
-        .hex();
-    }
+    if (
+      this.generateMethod === 'complementary' ||
+      this.generateMethod === 'monochromatic'
+    ) {
+      this.colors.backgroundColor = chroma.random().hex();
+      // check saturation
+      if (chroma(this.colors.backgroundColor).get('hsl.s') > 0.5) {
+        this.colors.backgroundColor = chroma(this.colors.backgroundColor)
+          .desaturate(2)
+          .hex();
+      }
 
-    // check if the color is light or dark
-    if (chroma.deltaE(this.colors.backgroundColor, '#000') < 50) {
+      // check if the color is light or dark
+      if (chroma.deltaE(this.colors.backgroundColor, '#000') < 50) {
+        this.colors.secondaryColor = chroma(this.colors.backgroundColor)
+          .brighten(0.4)
+          .hex();
+        this.colors.textColor = '#fff';
+        this.colors.formColor = chroma(this.colors.backgroundColor)
+          .brighten(0.2)
+          .hex();
+      } else {
+        this.colors.secondaryColor = chroma(this.colors.backgroundColor)
+          .darken(0.4)
+          .hex();
+        this.colors.textColor = '#000';
+        this.colors.formColor = chroma(this.colors.backgroundColor)
+          .darken(0.2)
+          .hex();
+      }
+      if (this.generateMethod === 'complementary') {
+        this.colors.primaryColor = this.findComplementaryColor(
+          this.colors.backgroundColor
+        );
+      }
+
+      if (this.generateMethod === 'monochromatic') {
+        if (chroma.deltaE(this.colors.secondaryColor, '#000') < 50) {
+          this.colors.primaryColor = chroma(this.colors.secondaryColor)
+            .brighten(0.6)
+            .hex();
+        } else {
+          this.colors.primaryColor = chroma(this.colors.secondaryColor)
+            .darken(0.6)
+            .hex();
+        }
+      }
+
+      if (chroma.deltaE(this.colors.primaryColor, '#000') < 50) {
+        this.colors.buttonTextColor = '#fff';
+      } else {
+        this.colors.buttonTextColor = '#000';
+      }
+    }
+    if (this.generateMethod === 'light') {
+      const backgroundScale = chroma.scale(['#fff', '#F6F6F6']);
+      this.colors.backgroundColor = backgroundScale(Math.random()).hex();
+      this.colors.secondaryColor = chroma(this.colors.backgroundColor)
+        .darken(0.2)
+        .hex();
+      this.colors.textColor = '#000';
+      this.colors.formColor = chroma(this.colors.secondaryColor)
+        .darken(0.2)
+        .hex();
+
+      this.colors.primaryColor = chroma.random().hex();
+
+      // check if the color is light or dark
+      this.colors.buttonTextColor =
+        chroma.deltaE(this.colors.primaryColor, '#000') < 50 ? '#fff' : '#000';
+    }
+    if (this.generateMethod === 'dark') {
+      const backgroundScale = chroma.scale(['#000', '#363354', '#1A1D37']);
+      this.colors.backgroundColor = backgroundScale(Math.random()).hex();
+
       this.colors.secondaryColor = chroma(this.colors.backgroundColor)
         .brighten(0.4)
         .hex();
@@ -34,23 +102,11 @@ export class GeneratorService {
       this.colors.formColor = chroma(this.colors.backgroundColor)
         .brighten(0.2)
         .hex();
-    } else {
-      this.colors.secondaryColor = chroma(this.colors.backgroundColor)
-        .darken(0.4)
-        .hex();
-      this.colors.textColor = '#000';
-      this.colors.formColor = chroma(this.colors.backgroundColor)
-        .darken(0.2)
-        .hex();
-    }
+      this.colors.primaryColor = chroma.random().hex();
 
-    this.colors.primaryColor = this.findComplementaryColor(
-      this.colors.backgroundColor
-    );
-    if (chroma.deltaE(this.colors.primaryColor, '#000') < 50) {
-      this.colors.buttonTextColor = '#fff';
-    } else {
-      this.colors.buttonTextColor = '#000';
+      // check if the primary color is light or dark
+      this.colors.buttonTextColor =
+        chroma.deltaE(this.colors.primaryColor, '#000') < 50 ? '#fff' : '#000';
     }
 
     this.checkGeneratedColors();
@@ -58,6 +114,33 @@ export class GeneratorService {
 
   checkGeneratedColors() {
     const checkContrast = setInterval(() => {
+      if (this.generateMethod === 'dark') {
+        if (
+          chroma(this.colors.primaryColor).get('hsl.s') > 0.6 ||
+          this.colorsService.checkContrast(
+            this.colors.secondaryColor,
+            this.colors.primaryColor
+          ) < 8
+        ) {
+          this.generateColors();
+          return;
+        }
+      }
+      if (this.generateMethod === 'light') {
+        if (
+          (chroma(this.colors.primaryColor).get('hsl.s') > 0.55 &&
+            chroma(this.colors.primaryColor).get('hsl.s') < 0.3) ||
+          this.colorsService.checkContrast(
+            this.colors.secondaryColor,
+            this.colors.primaryColor
+          ) < 8 ||
+          chroma.deltaE(this.colors.primaryColor, '#000') < 20
+        ) {
+          this.generateColors();
+          return;
+        }
+      }
+
       if (
         this.colorsService.checkContrast(
           this.colors.secondaryColor,
@@ -72,7 +155,6 @@ export class GeneratorService {
         this.changeColors(this.colors);
       } else {
         this.generateColors();
-        console.log('checking contrast');
       }
     }, 1);
   }

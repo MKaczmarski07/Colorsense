@@ -14,7 +14,7 @@
       <div class="flex md:flex-row flex-col gap-3">
         <button
           class="bg-[#018578] text-white font-medium px-5 py-2 w-auto rounded-[10px]"
-          routerLink="/canvas"
+          routerLink="/palette"
         >
           Find Perfect Colors!
         </button>
@@ -45,13 +45,17 @@
         >See how your palette looks on the most common web UI elements</span
       >
     </div>
-    <div class="infoContainer" routerLink="/canvas">
+    <div
+      class="infoContainer"
+      routerLink="/canvas"
+      (click)="filterService.isMenuForcedToOpen = true"
+    >
       <img
         src="../../assets/Images/colorBlind-icon.svg"
         width="100px"
         height="71.04px"
       />
-      <span class="text-2xl font-bold">Simulate colorblindness</span>
+      <span class="text-2xl font-bold">Simulate color blindness</span>
       <span class="text-[#5d5d5d]"
         >Check how your design will be seen by people with different types of
         color blindness</span

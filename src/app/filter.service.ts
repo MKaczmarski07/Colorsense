@@ -6,9 +6,8 @@ import * as chroma from 'chroma-js';
 })
 export class FilterService {
   constructor() {}
-  isMenuVisible: boolean = false;
   isFilterActive: boolean = false;
-  isFilterAvinable: boolean = true;
+  isMenuForcedToOpen: boolean = false;
   selectedDisability: string = 'normal';
   blinder = require('color-blind');
   filteredColors = {
@@ -19,12 +18,6 @@ export class FilterService {
     buttonTextColor: '',
     formColor: '',
   };
-
-  showMenu() {
-    if (this.isFilterAvinable) {
-      this.isMenuVisible = !this.isMenuVisible;
-    }
-  }
 
   saveFilteredColors() {
     localStorage.setItem('filteredColors', JSON.stringify(this.filteredColors));

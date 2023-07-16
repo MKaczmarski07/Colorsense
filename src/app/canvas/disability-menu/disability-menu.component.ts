@@ -11,6 +11,15 @@ export class DisabilityMenuComponent {
   isMenuVisible = false;
   clickCount = 0;
 
+  ngAfterViewInit() {
+    setTimeout(() => {
+      if (this.filterService.isMenuForcedToOpen) {
+        this.showMenu();
+        this.filterService.isMenuForcedToOpen = false;
+      }
+    }, 100);
+  }
+
   @HostListener('document:click', ['$event']) //Close the menu when clicking outside
   onClick(event: MouseEvent) {
     this.clickCount++;

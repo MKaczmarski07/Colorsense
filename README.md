@@ -1,32 +1,29 @@
-# Colorsense - color accesibility tester
+# Colorsense 
+Colorsense is an application created to help designers and developers create color palettes adapted to websites. Thanks to the multitude of built-in functions, the color palettes created with this application will always be adequately contrasted and accessible to people with disabilities.
 
-## Live example 🌐
+## Official Website 🌐
 
 _This option will be added in the future_
 
-## About ✍️
+## Site Features
+✨ Color palette generator ( currently with 4 variants - Complementary, Monochromatic, Light and Dark )<br>
+✨ A grid of UI elements that changes color depending on the selected palette<br>
+✨ Simulating color blindness<br>
+✨ Testing the contrast of the selected palette according to WCAG guidelines<br>
+✨ Editing any color in the palette using a prepared set of shades, manual selection or entering a value<br>
 
-Would you like to check how the color palette you choose looks like in the most typical elements of websites? is it sufficiently contrasting and accessible to people with disabilities? this app solves all these problems.
+## Technology Stack
 
-## Technological facilities 🛠️
+[Angular 🔗](https://angular.io)<br>
+[TypeScript 🔗](https://typescriptlang.org)<br>
+[TailwindCSS 🔗](https://tailwindcss.com)<br>
+[Sass 🔗](https://sass-lang.com)<br>
+[Chroma.js 🔗](https://gka.github.io/chroma.js/)<br>
+[Ngx-colors 🔗](https://ngx-colors.web.app/overview)<br>
+[color-blind library 🔗](https://github.com/skratchdot/color-blind)<br>
 
-### Main architecture
-
-- Application is based on Angular 15.
-- **Two-way data binding** is handled using Angular's FormsModule.
-- Colors are changed by functions that use native Javascript properties.
-- Color conversion is done using the **chroma.js** library.
-- Simulations of different types of color blindness are achieved using the **color-blind** library
-- UI is mainly done with the **TailwindCSS** framework and **SCSS**.
 
 ## Installation Guide ⚙️
-
-This project is based on Angular framework and uses libraries:
-
-- TailwindCSS
-- ngx-colors
-- Chroma.js
-- color-blind
 
 Here's a step-by-step guide to help you get started with the project.
 

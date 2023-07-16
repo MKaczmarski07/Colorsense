@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { ColorsService } from '../colors.service';
 import { FilterService } from '../filter.service';
+import { ScrollService } from '../scroll.service';
 @Component({
   selector: 'app-canvas',
   templateUrl: './canvas.component.html',
@@ -11,7 +12,7 @@ export class CanvasComponent implements OnInit {
   constructor(
     public colorsService: ColorsService,
     public filterService: FilterService,
-    private viewportScroller: ViewportScroller
+    private scrollService: ScrollService
   ) {}
 
   ngOnInit() {
@@ -21,6 +22,6 @@ export class CanvasComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.viewportScroller.scrollToPosition([0, 0]);
+    this.scrollService.initializeSmoothScrollbar().setPosition(0, 0);
   }
 }

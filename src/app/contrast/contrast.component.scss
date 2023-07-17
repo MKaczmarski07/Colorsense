@@ -1,5 +1,34 @@
-@media (max-width: 640px) {
+@media (max-width: 400px) {
   .passInfo {
+    display: none;
+  }
+}
+
+.colorValueContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5rem 0.75rem;
+  border: 2px #e9e8e8 solid;
+  border-radius: 10px;
+  box-sizing: border-box;
+
+  @media (max-width: 400px) {
+    justify-content: center;
+  }
+}
+
+.colorBlock {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 5px;
+  border: 2px #e9e8e8 solid;
+  display: block;
+
+  @media (max-width: 400px) {
     display: none;
   }
 }

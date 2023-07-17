@@ -11,32 +11,41 @@
       <div class="flex flex-col gap-6">
         <div class="flex gap-6 w-full">
           <div class="flex flex-col gap-1 w-[50%]">
-            <span class="text-lg font-[500]">Background color</span>
-            <div
-              class="flex justify-between items-center py-2 px-3 border-2 border-[#e9e8e8] rounded-[10px]"
-            >
+            <div class="flex sm:flex-row flex-col sm:gap-1 text-center">
+              <span class="text-lg font-[500] sm:text-start text-center"
+                >Background</span
+              >
+              <span class="text-lg font-[500] sm:text-start text-center"
+                >Color</span
+              >
+            </div>
+
+            <div class="colorValueContainer">
               <span class="text-lg">{{ colorsService.backgroundColor }}</span>
-              <div
-                class="backgroundColorPicker w-6 h-6 rounded-[5px] border-2 border-[#eeeeee]"
-              ></div>
+              <div class="backgroundColorPicker colorBlock"></div>
             </div>
           </div>
           <div class="flex flex-col gap-1 w-[50%]">
-            <span class="text-lg font-[500]">Text color</span>
-            <div
-              class="flex justify-between items-center py-2 px-3 border-2 border-[#eeeeee] rounded-[10px]"
-            >
+            <div class="flex sm:flex-row flex-col sm:gap-1 text-center">
+              <span class="text-lg font-[500] sm:text-start text-center"
+                >Text</span
+              >
+              <span class="text-lg font-[500] sm:text-start text-center"
+                >Color</span
+              >
+            </div>
+            <div class="colorValueContainer">
               <span class="text-lg">{{ colorsService.textColor }}</span>
-              <div
-                class="textPicker w-6 h-6 rounded-[5px] border-2 border-[#eeeeee]"
-              ></div>
+              <div class="textPicker colorBlock"></div>
             </div>
           </div>
         </div>
 
-        <span class="text-lg font-[500]">Contrast ratio</span>
+        <span class="text-lg font-[500] sm:text-start text-center"
+          >Contrast ratio</span
+        >
         <span
-          class="text-4xl font-[500]"
+          class="text-4xl font-[500] sm:text-start text-center"
           [ngClass]="{
             'text-[#018578]': colorsService.textToBackgroundRatio >= 4.5,
             'text-[#b52546]': colorsService.textToBackgroundRatio < 4.5
@@ -44,7 +53,9 @@
           >{{ colorsService.textToBackgroundRatio }}:1</span
         >
 
-        <span class="text-lg font-[500]">Details</span>
+        <span class="text-lg font-[500] sm:text-start text-center"
+          >Details</span
+        >
         <div class="flex items-center justify-between">
           <span>Small text</span>
           <div class="flex items-center gap-2 justify-between sm:w-[6rem]">
@@ -133,32 +144,40 @@
       <div class="flex flex-col gap-6">
         <div class="flex gap-6 w-full">
           <div class="flex flex-col gap-1 w-[50%]">
-            <span class="text-lg font-[500]">Secondary color</span>
-            <div
-              class="flex justify-between items-center py-2 px-3 border-2 border-[#e9e8e8] rounded-[10px]"
-            >
+            <div class="flex sm:flex-row flex-col sm:gap-1 text-center">
+              <span class="text-lg font-[500] sm:text-start text-center"
+                >Secondary</span
+              >
+              <span class="text-lg font-[500] sm:text-start text-center"
+                >Color</span
+              >
+            </div>
+            <div class="colorValueContainer">
               <span class="text-lg">{{ colorsService.secondaryColor }}</span>
-              <div
-                class="secondaryColorPicker w-6 h-6 rounded-[5px] border-2 border-[#eeeeee]"
-              ></div>
+              <div class="secondaryColorPicker colorBlock"></div>
             </div>
           </div>
           <div class="flex flex-col gap-1 w-[50%]">
-            <span class="text-lg font-[500]">Text color</span>
-            <div
-              class="flex justify-between items-center py-2 px-3 border-2 border-[#eeeeee] rounded-[10px]"
-            >
+            <div class="flex sm:flex-row flex-col sm:gap-1 text-center">
+              <span class="text-lg font-[500] sm:text-start text-center"
+                >Text</span
+              >
+              <span class="text-lg font-[500] sm:text-start text-center"
+                >Color</span
+              >
+            </div>
+            <div class="colorValueContainer">
               <span class="text-lg">{{ colorsService.textColor }}</span>
-              <div
-                class="textPicker w-6 h-6 rounded-[5px] border-2 border-[#eeeeee]"
-              ></div>
+              <div class="textPicker colorBlock"></div>
             </div>
           </div>
         </div>
 
-        <span class="text-lg font-[500]">Contrast ratio</span>
+        <span class="text-lg font-[500] sm:text-start text-center"
+          >Contrast ratio</span
+        >
         <span
-          class="text-4xl font-[500]"
+          class="text-4xl font-[500] sm:text-start text-center"
           [ngClass]="{
             'text-[#018578]': colorsService.textToSecondaryRatio >= 4.5,
             'text-[#b52546]': colorsService.textToSecondaryRatio < 4.5
@@ -166,7 +185,9 @@
           >{{ colorsService.textToSecondaryRatio }}:1</span
         >
 
-        <span class="text-lg font-[500]">Details</span>
+        <span class="text-lg font-[500] sm:text-start text-center"
+          >Details</span
+        >
         <div class="flex items-center justify-between">
           <span>Small text</span>
           <div class="flex items-center gap-2 justify-between sm:w-[6rem]">
@@ -255,35 +276,40 @@
       <div class="flex flex-col gap-6">
         <div class="flex gap-6 w-full">
           <div class="flex flex-col gap-1 w-[50%]">
-            <span class="text-lg font-[500]">Primary color</span>
-            <div
-              class="flex justify-between items-center py-2 px-3 border-2 border-[#e9e8e8] rounded-[10px]"
-            >
+            <div class="flex sm:flex-row flex-col sm:gap-1 text-center">
+              <span class="text-lg font-[500] sm:text-start text-center"
+                >Primary</span
+              >
+              <span class="text-lg font-[500] sm:text-start text-center"
+                >Color</span
+              >
+            </div>
+            <div class="colorValueContainer">
               <span class="text-lg">{{ colorsService.primaryColor }}</span>
-              <div
-                class="secondary-color w-6 h-6 rounded-[5px] border-2 border-[#eeeeee] hidden"
-              ></div>
-              <div
-                class="primaryColorPicker w-6 h-6 rounded-[5px] border-2 border-[#eeeeee]"
-              ></div>
+              <div class="primaryColorPicker colorBlock"></div>
             </div>
           </div>
           <div class="flex flex-col gap-1 w-[50%]">
-            <span class="text-lg font-[500]">Button text color</span>
-            <div
-              class="flex justify-between items-center py-2 px-3 border-2 border-[#eeeeee] rounded-[10px]"
-            >
+            <div class="flex sm:flex-row flex-col sm:gap-1 text-center">
+              <span class="text-lg font-[500] sm:text-start text-center"
+                >Button text</span
+              >
+              <span class="text-lg font-[500] sm:text-start text-center"
+                >Color</span
+              >
+            </div>
+            <div class="colorValueContainer">
               <span class="text-lg">{{ colorsService.buttonTextColor }}</span>
-              <div
-                class="buttonColorPicker w-6 h-6 rounded-[5px] border-2 border-[#eeeeee]"
-              ></div>
+              <div class="buttonColorPicker colorBlock"></div>
             </div>
           </div>
         </div>
 
-        <span class="text-lg font-[500]">Contrast ratio</span>
+        <span class="text-lg font-[500] sm:text-start text-center"
+          >Contrast ratio</span
+        >
         <span
-          class="text-4xl font-[500]"
+          class="text-4xl font-[500] sm:text-start text-center"
           [ngClass]="{
             'text-[#018578]': colorsService.buttonTextRatio >= 4.5,
             'text-[#b52546]': colorsService.buttonTextRatio < 4.5
@@ -291,7 +317,9 @@
           >{{ colorsService.buttonTextRatio }}:1</span
         >
 
-        <span class="text-lg font-[500]">Details</span>
+        <span class="text-lg font-[500] sm:text-start text-center"
+          >Details</span
+        >
         <div class="flex items-center justify-between">
           <span>Small text</span>
           <div class="flex items-center gap-2 justify-between sm:w-[6rem]">

@@ -29,7 +29,8 @@
         class="flex justify-start generator-button"
         (click)="
           generatorService.generateMethod = 'complementary';
-          generatorService.isCongigOpen = false
+          generatorService.isCongigOpen = false;
+          generatorService.saveSettings()
         "
         [ngClass]="{
           selected: generatorService.generateMethod === 'complementary'
@@ -41,7 +42,8 @@
         class="flex justify-start generator-button"
         (click)="
           generatorService.generateMethod = 'monochromatic';
-          generatorService.isCongigOpen = false
+          generatorService.isCongigOpen = false;
+          generatorService.saveSettings()
         "
         [ngClass]="{
           selected: generatorService.generateMethod === 'monochromatic'
@@ -53,7 +55,8 @@
         class="flex justify-start generator-button"
         (click)="
           generatorService.generateMethod = 'light';
-          generatorService.isCongigOpen = false
+          generatorService.isCongigOpen = false;
+          generatorService.saveSettings()
         "
         [ngClass]="{
           selected: generatorService.generateMethod === 'light'
@@ -65,7 +68,8 @@
         class="flex justify-start generator-button"
         (click)="
           generatorService.generateMethod = 'dark';
-          generatorService.isCongigOpen = false
+          generatorService.isCongigOpen = false;
+          generatorService.saveSettings()
         "
         [ngClass]="{
           selected: generatorService.generateMethod === 'dark'

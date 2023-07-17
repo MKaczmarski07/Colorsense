@@ -42,6 +42,9 @@ testem.log
 Thumbs.db
 
 # Env files
+firebase.json
+.firebaserc
+.firebase
 
 
 

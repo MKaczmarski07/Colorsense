@@ -179,4 +179,15 @@ export class GeneratorService {
     localStorage.setItem('colors', JSON.stringify(colors));
     this.colorsService.loadColors();
   }
+
+  saveSettings() {
+    localStorage.setItem('GenerateMethod', JSON.stringify(this.generateMethod));
+  }
+
+  loadSettings() {
+    let loadedSettings = JSON.parse(localStorage.getItem('GenerateMethod')!);
+    if (loadedSettings) {
+      this.generateMethod = loadedSettings;
+    }
+  }
 }

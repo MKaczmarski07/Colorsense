@@ -17,5 +17,6 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.colorsService.loadColors();
+    this.generatorService.loadSettings();
   }
 }

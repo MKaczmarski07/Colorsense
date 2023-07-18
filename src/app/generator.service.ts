@@ -9,7 +9,7 @@ export class GeneratorService {
   constructor(private colorsService: ColorsService) {}
   isCongigOpen = false;
   generateMethod: 'complementary' | 'monochromatic' | 'light' | 'dark' =
-    'complementary';
+    'light';
   colors = {
     backgroundColor: '',
     primaryColor: '',

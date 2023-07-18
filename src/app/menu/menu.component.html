@@ -21,6 +21,7 @@
         (ngModelChange)="
           colorsService.changePrimaryColor(colorsService.primaryColor)
         "
+        aria-label="Primary Color"
       >
         <span class="tooltiptext mt-[0.3rem]">Primary</span>
       </button>
@@ -31,6 +32,7 @@
         (ngModelChange)="
           colorsService.changeSecondaryColor(colorsService.secondaryColor)
         "
+        aria-label="Secondary Color"
       >
         <span class="tooltiptext mt-[0.3rem]">Secondary</span>
       </button>
@@ -41,6 +43,7 @@
         (ngModelChange)="
           colorsService.changeBackground(colorsService.backgroundColor)
         "
+        aria-label="Background Color"
       >
         <span class="tooltiptext mt-[0.3rem]">Background</span>
       </button>
@@ -49,6 +52,7 @@
         ngx-colors-trigger
         [(ngModel)]="colorsService.formColor"
         (ngModelChange)="colorsService.changeFormColor(colorsService.formColor)"
+        aria-label="Form Color"
       >
         <span class="tooltiptext mt-[0.3rem]">Forms</span>
       </button>
@@ -57,6 +61,7 @@
         ngx-colors-trigger
         [(ngModel)]="colorsService.textColor"
         (ngModelChange)="colorsService.changeTextColor(colorsService.textColor)"
+        aria-label="Text Color"
       >
         <span class="tooltiptext mt-[0.3rem]">Text</span>
       </button>
@@ -67,6 +72,7 @@
         (ngModelChange)="
           colorsService.changeButtonTextColor(colorsService.buttonTextColor)
         "
+        aria-label="Button Text Color"
       >
         <span class="tooltiptext mt-[0.3rem]">Button text</span>
       </button>
@@ -77,7 +83,7 @@
     ></span>
 
     <div class="flex md:gap-6 gap-4 text-[#2C3439] justify-end">
-      <button class="tooltip" routerLink="/canvas">
+      <button class="tooltip" routerLink="/canvas" aria-label="UI Elements">
         <svg
           class="h-7 w-7"
           fill="none"
@@ -95,8 +101,7 @@
         </svg>
         <span class="tooltiptext">UI Elements</span>
       </button>
-
-      <button class="tooltip" routerLink="/palette">
+      <button class="tooltip" routerLink="/palette" aria-label="My Palette">
         <svg
           class="h-7 w-7"
           fill="none"
@@ -114,7 +119,11 @@
         </svg>
         <span class="tooltiptext">My Palette</span>
       </button>
-      <button class="tooltip" routerLink="/contrast">
+      <button
+        class="tooltip"
+        routerLink="/contrast"
+        aria-label="Contrast Check"
+      >
         <svg
           class="h-7 w-7"
           fill="none"
@@ -132,7 +141,11 @@
         </svg>
         <span class="tooltiptext">Contrast Check</span>
       </button>
-      <button class="tooltip" (click)="generatorService.isCongigOpen = true">
+      <button
+        class="tooltip"
+        (click)="generatorService.isCongigOpen = true"
+        aria-label="Generate Method"
+      >
         <svg
           class="h-7 w-7"
           fill="none"
@@ -159,6 +172,7 @@
       <button
         class="bg-[#2C3439] text-white px-4 py-2 rounded-md text-sm font-medium"
         (click)="generatorService.generateColors()"
+        aria-label="Generate Palette"
       >
         Generate
       </button>

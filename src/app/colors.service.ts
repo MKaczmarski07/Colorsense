@@ -7,12 +7,12 @@ import { FilterService } from './filter.service';
 })
 export class ColorsService {
   constructor(public filterService: FilterService) {}
-  backgroundColor: string = '#F8F4EA';
-  primaryColor: string = '#579BB1';
-  secondaryColor: string = '#ECE8DD';
-  textColor: string = '#37474f';
+  backgroundColor: string = '#f9f9f9';
+  primaryColor: string = '#166058';
+  secondaryColor: string = '#efefef';
+  textColor: string = '#000000';
   buttonTextColor: string = '#ffffff';
-  formColor: string = '#E1D7C6';
+  formColor: string = '#e5e5e5';
 
   textToBackgroundRatio: number = 0;
   textToSecondaryRatio: number = 0;

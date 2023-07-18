@@ -137,7 +137,6 @@ export class FilterService {
 
     let textAccent = textField[0].style.color;
     textAccent = chroma(textAccent).darken(0.9).css();
-    console.log(textAccent);
     const textAccentColor = document.querySelectorAll(
       '.textAccent'
     ) as NodeListOf<HTMLElement>;

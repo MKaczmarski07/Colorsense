@@ -1,11 +1,13 @@
-# Colorsense 
+# Colorsense
+
 Colorsense is an application created to help designers and developers create color palettes adapted to websites. Thanks to the multitude of built-in functions, the color palettes created with this application will always be adequately contrasted and accessible to people with disabilities.
 
 ## Official Website 🌐
 
-_This option will be added in the future_
+[colorsense.kaczmarski.dev](https://colorsense.kaczmarski.dev)
 
 ## Site Features
+
 ✨ Color palette generator ( currently with 4 variants - Complementary, Monochromatic, Light and Dark )<br>
 ✨ A grid of UI elements that changes color depending on the selected palette<br>
 ✨ Simulating color blindness<br>
@@ -21,7 +23,6 @@ _This option will be added in the future_
 [Chroma.js 🔗](https://gka.github.io/chroma.js/)<br>
 [Ngx-colors 🔗](https://ngx-colors.web.app/overview)<br>
 [color-blind library 🔗](https://github.com/skratchdot/color-blind)<br>
-
 
 ## Installation Guide ⚙️
 

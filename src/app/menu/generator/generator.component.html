@@ -28,32 +28,6 @@
       <button
         class="flex justify-start generator-button"
         (click)="
-          generatorService.generateMethod = 'complementary';
-          generatorService.isCongigOpen = false;
-          generatorService.saveSettings()
-        "
-        [ngClass]="{
-          selected: generatorService.generateMethod === 'complementary'
-        }"
-      >
-        <span>Complementary</span>
-      </button>
-      <button
-        class="flex justify-start generator-button"
-        (click)="
-          generatorService.generateMethod = 'monochromatic';
-          generatorService.isCongigOpen = false;
-          generatorService.saveSettings()
-        "
-        [ngClass]="{
-          selected: generatorService.generateMethod === 'monochromatic'
-        }"
-      >
-        <span>Monochromatic</span>
-      </button>
-      <button
-        class="flex justify-start generator-button"
-        (click)="
           generatorService.generateMethod = 'light';
           generatorService.isCongigOpen = false;
           generatorService.saveSettings()
@@ -61,6 +35,7 @@
         [ngClass]="{
           selected: generatorService.generateMethod === 'light'
         }"
+        aria-label="Light Palette"
       >
         <span>Light Palette</span>
       </button>
@@ -74,8 +49,37 @@
         [ngClass]="{
           selected: generatorService.generateMethod === 'dark'
         }"
+        aria-label="Dark Palette"
       >
         <span>Dark Palette</span>
+      </button>
+      <button
+        class="flex justify-start generator-button"
+        (click)="
+          generatorService.generateMethod = 'complementary';
+          generatorService.isCongigOpen = false;
+          generatorService.saveSettings()
+        "
+        [ngClass]="{
+          selected: generatorService.generateMethod === 'complementary'
+        }"
+        aria-label="Complementary Palette"
+      >
+        <span>Complementary</span>
+      </button>
+      <button
+        class="flex justify-start generator-button"
+        (click)="
+          generatorService.generateMethod = 'monochromatic';
+          generatorService.isCongigOpen = false;
+          generatorService.saveSettings()
+        "
+        [ngClass]="{
+          selected: generatorService.generateMethod === 'monochromatic'
+        }"
+        aria-label="Monochromatic Palette"
+      >
+        <span>Monochromatic</span>
       </button>
     </div>
   </div>

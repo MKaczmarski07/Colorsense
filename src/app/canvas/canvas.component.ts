@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewportScroller } from '@angular/common';
 import { ColorsService } from '../colors.service';
 import { FilterService } from '../filter.service';
 import { ScrollService } from '../scroll.service';

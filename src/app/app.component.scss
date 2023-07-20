@@ -1,3 +1,14 @@
 .scroll-offset {
   padding-right: 8px;
 }
+
+.loader {
+  width: 100vw;
+  height: 100svh;
+  position: fixed;
+  z-index: 100;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

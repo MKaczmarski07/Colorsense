@@ -1,13 +1,23 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { ScrollService } from './scroll.service';
 import { Meta } from '@angular/platform-browser';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('toggleVisibility', [
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('500ms ease-out', style({ opacity: 0 })),
+      ]),
+    ]),
+  ],
 })
 export class AppComponent implements AfterViewInit {
+  isLoaderVisible = true;
   constructor(private scrollService: ScrollService, private meta: Meta) {}
 
   ngOnInit() {
@@ -27,7 +37,9 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log('App component initialized');
+    setTimeout(() => {
+      this.isLoaderVisible = false;
+    }, 1000);
     if (window.innerWidth > 768) {
       this.scrollService.initializeSmoothScrollbar();
       document.querySelector('.smooth-scroll')?.classList.add('scroll-offset');

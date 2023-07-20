@@ -16,7 +16,12 @@
       type="image/png"
       href="assets/Images/favicon/favicon.png"
     />
-    <link href="/dist/output.css" rel="stylesheet" />
+    <link
+      rel="preload"
+      as="style"
+      onload="this.rel = 'stylesheet'"
+      href="/dist/output.css"
+    />
     <script type="text/javascript" src="toolcool-color-picker.min.js"></script>
   </head>
   <body>

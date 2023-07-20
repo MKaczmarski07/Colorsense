@@ -15,6 +15,12 @@ export class HomeComponent {
 
   scrollDown() {
     const scrollPoint = document.querySelector('.scroll-point') as HTMLElement;
-    this.scrollService.initializeSmoothScrollbar().scrollIntoView(scrollPoint);
+    if (window.innerWidth > 768) {
+      this.scrollService
+        .initializeSmoothScrollbar()
+        .scrollIntoView(scrollPoint);
+    } else {
+      scrollPoint.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }

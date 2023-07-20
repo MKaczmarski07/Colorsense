@@ -12,9 +12,6 @@ export class ScrollService {
       damping: 0.1,
       alwaysShowTracks: true,
       continuousScrolling: false,
-      overflowBehavior: {
-        x: 'hidden',
-      },
     };
     let scrollbar = Scrollbar.init(
       document.querySelector('.smooth-scroll') as HTMLElement,

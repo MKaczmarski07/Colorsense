@@ -12,11 +12,6 @@ export class ColorContainerComponent implements OnInit {
   @Input() color: string = '';
   textColor = '';
 
-  get HexColor(): string {
-    const color = chroma(this.color);
-    return color.hex();
-  }
-
   ngOnInit() {
     this.colorsService.loadColors();
   }
@@ -34,6 +29,6 @@ export class ColorContainerComponent implements OnInit {
   }
 
   CopyToClipboard() {
-    navigator.clipboard.writeText(this.HexColor);
+    navigator.clipboard.writeText(this.color);
   }
 }

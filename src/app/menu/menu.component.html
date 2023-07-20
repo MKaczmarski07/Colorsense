@@ -17,6 +17,7 @@
       <button
         class="w-8 h-8 cursor-pointer primaryColorPicker rounded-full picker tooltip"
         ngx-colors-trigger
+        format="hex"
         [(ngModel)]="colorsService.primaryColor"
         (ngModelChange)="
           colorsService.changePrimaryColor(colorsService.primaryColor)
@@ -28,6 +29,7 @@
       <button
         class="w-8 h-8 cursor-pointer secondaryColorPicker rounded-full picker tooltip"
         ngx-colors-trigger
+        format="hex"
         [(ngModel)]="colorsService.secondaryColor"
         (ngModelChange)="
           colorsService.changeSecondaryColor(colorsService.secondaryColor)
@@ -39,6 +41,7 @@
       <button
         class="w-8 h-8 cursor-pointer backgroundColorPicker rounded-full picker tooltip"
         ngx-colors-trigger
+        format="hex"
         [(ngModel)]="colorsService.backgroundColor"
         (ngModelChange)="
           colorsService.changeBackground(colorsService.backgroundColor)
@@ -50,6 +53,7 @@
       <button
         class="w-8 h-8 cursor-pointer formColorPicker rounded-full picker tooltip"
         ngx-colors-trigger
+        format="hex"
         [(ngModel)]="colorsService.formColor"
         (ngModelChange)="colorsService.changeFormColor(colorsService.formColor)"
         aria-label="Form Color"
@@ -61,6 +65,7 @@
         ngx-colors-trigger
         [(ngModel)]="colorsService.textColor"
         (ngModelChange)="colorsService.changeTextColor(colorsService.textColor)"
+        format="hex"
         aria-label="Text Color"
       >
         <span class="tooltiptext mt-[0.3rem]">Text</span>
@@ -68,6 +73,7 @@
       <button
         class="w-8 h-8 cursor-pointer buttonColorPicker rounded-full picker tooltip"
         ngx-colors-trigger
+        format="hex"
         [(ngModel)]="colorsService.buttonTextColor"
         (ngModelChange)="
           colorsService.changeButtonTextColor(colorsService.buttonTextColor)

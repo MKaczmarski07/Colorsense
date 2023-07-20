@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ColorsService } from '../colors.service';
 import { FilterService } from '../filter.service';
 import { ScrollService } from '../scroll.service';
@@ -7,7 +7,7 @@ import { ScrollService } from '../scroll.service';
   templateUrl: './canvas.component.html',
   styleUrls: ['./canvas.component.scss'],
 })
-export class CanvasComponent implements OnInit {
+export class CanvasComponent implements AfterViewInit, OnInit {
   constructor(
     public colorsService: ColorsService,
     public filterService: FilterService,
@@ -21,6 +21,10 @@ export class CanvasComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.scrollService.initializeSmoothScrollbar().setPosition(0, 0);
+    if (window.innerWidth > 768) {
+      this.scrollService.initializeSmoothScrollbar().setPosition(0, 0);
+    } else {
+      document.body.scrollTop = 0;
+    }
   }
 }

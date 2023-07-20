@@ -28,6 +28,9 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     console.log('App component initialized');
-    this.scrollService.initializeSmoothScrollbar();
+    if (window.innerWidth > 768) {
+      this.scrollService.initializeSmoothScrollbar();
+      document.querySelector('.smooth-scroll')?.classList.add('scroll-offset');
+    }
   }
 }

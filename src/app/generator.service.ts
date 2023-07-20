@@ -128,8 +128,9 @@ export class GeneratorService {
       }
       if (this.generateMethod === 'light') {
         if (
-          (chroma(this.colors.primaryColor).get('hsl.s') > 0.55 &&
-            chroma(this.colors.primaryColor).get('hsl.s') < 0.3) ||
+          chroma(this.colors.primaryColor).get('hsl.l') > 0.8 ||
+          chroma(this.colors.primaryColor).get('hsl.s') > 0.6 ||
+          chroma(this.colors.primaryColor).get('hsl.s') < 0.3 ||
           this.colorsService.checkContrast(
             this.colors.secondaryColor,
             this.colors.primaryColor

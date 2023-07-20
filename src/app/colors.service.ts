@@ -110,7 +110,11 @@ export class ColorsService {
 
     // Check if color is light or dark and set proper accent color
     if (chroma.deltaE(color, '#000') < 50) {
-      primaryAccent = chroma(primaryAccent).brighten(0.6).css();
+      if (this.checkContrast(primaryAccent, this.primaryColor) > 1.45) {
+        primaryAccent = chroma(primaryAccent).brighten(0.6).css();
+      } else {
+        primaryAccent = chroma(primaryAccent).brighten(0.8).css();
+      }
     } else {
       primaryAccent = chroma(primaryAccent).darken(0.6).css();
     }
@@ -217,16 +221,6 @@ export class ColorsService {
       formColor.forEach((e) => e.classList.add('light'));
     }
 
-    this.saveColors();
-  }
-
-  resetColors() {
-    this.backgroundColor = '#F8F4EA';
-    this.primaryColor = '#579BB1';
-    this.secondaryColor = '#ECE8DD';
-    this.textColor = '#37474f';
-    this.buttonTextColor = '#ffffff';
-    this.formColor = '#F8F4EA';
     this.saveColors();
   }
 

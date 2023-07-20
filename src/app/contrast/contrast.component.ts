@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewportScroller } from '@angular/common';
 import { ColorsService } from '../colors.service';
 import { FilterService } from '../filter.service';
 import { ScrollService } from '../scroll.service';
@@ -21,6 +20,10 @@ export class ContrastComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.scrollService.initializeSmoothScrollbar().setPosition(0, 0);
+    if (window.innerWidth > 768) {
+      this.scrollService.initializeSmoothScrollbar().setPosition(0, 0);
+    } else {
+      document.body.scrollTop = 0;
+    }
   }
 }

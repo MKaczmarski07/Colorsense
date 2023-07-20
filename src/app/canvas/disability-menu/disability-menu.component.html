@@ -40,6 +40,7 @@
         selected: filterService.selectedDisability === 'normal'
       }"
       (click)="filterService.applyFilter('normal')"
+      aria-label="Normal vision"
     >
       <span class="font-[500]">Normal vision</span>
     </button>
@@ -49,6 +50,7 @@
       [ngClass]="{
         selected: filterService.selectedDisability === 'deuteranomaly'
       }"
+      aria-label="Deuteranomaly"
     >
       <span class="font-[500]">Deuteranomaly</span> (Most Common)
     </button>
@@ -58,6 +60,7 @@
       [ngClass]="{
         selected: filterService.selectedDisability === 'protanomaly'
       }"
+      aria-label="Protanomaly"
     >
       <span class="font-[500]">Protanomaly</span> (Less Common)
     </button>
@@ -67,6 +70,7 @@
       [ngClass]="{
         selected: filterService.selectedDisability === 'protanopia'
       }"
+      aria-label="Protanopia"
     >
       <span class="font-[500]">Protanopia</span> (Less Common)
     </button>
@@ -76,6 +80,7 @@
       [ngClass]="{
         selected: filterService.selectedDisability === 'tritanomaly'
       }"
+      aria-label="Tritanomaly"
     >
       <span class="font-[500]">Tritanomaly</span> (Rare)
     </button>
@@ -85,6 +90,7 @@
       [ngClass]="{
         selected: filterService.selectedDisability === 'tritanopia'
       }"
+      aria-label="Tritanopia"
     >
       <span class="font-[500]">Tritanopia</span> (Rare)
     </button>
@@ -94,6 +100,7 @@
       [ngClass]="{
         selected: filterService.selectedDisability === 'achromatopsia'
       }"
+      aria-label="Achromatopsia"
     >
       <span class="font-[500]">Achromatopsia</span> (Very Rare)
     </button>

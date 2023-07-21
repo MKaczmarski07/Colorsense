@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import Scrollbar from 'smooth-scrollbar';
+import * as Bowser from 'bowser';
 
 @Injectable({
   providedIn: 'root',
@@ -29,5 +30,19 @@ export class ScrollService {
     });
 
     return scrollbar;
+  }
+
+  checkBrowser() {
+    // Check browser support for smooth-scrollbar library
+    const browser = Bowser.getParser(window.navigator.userAgent);
+    const isValidBrowser = browser.satisfies({
+      chrome: '>=22',
+      firefox: '>=16',
+      opera: '>=22',
+      safari: '>=8',
+      'internet explorer': '>=10',
+      'android browser': '>=4',
+    });
+    return isValidBrowser;
   }
 }

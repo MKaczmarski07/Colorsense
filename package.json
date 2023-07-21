@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
     "@types/chroma-js": "^2.4.0",
+    "bowser": "^2.11.0",
     "chroma-js": "^2.4.2",
     "color-blind": "^0.1.3",
     "ngx-colors": "^3.5.2",

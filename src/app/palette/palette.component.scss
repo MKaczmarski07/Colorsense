@@ -1,0 +1,13 @@
+.supported {
+  min-height: calc(100svh - 5.5rem);
+  @media (min-width: 900px) {
+    min-height: calc(100svh - 3rem);
+  }
+}
+
+.not-supported {
+  min-height: calc(100vh - 5.5rem);
+  @media (min-width: 900px) {
+    min-height: calc(100vh - 3rem);
+  }
+}

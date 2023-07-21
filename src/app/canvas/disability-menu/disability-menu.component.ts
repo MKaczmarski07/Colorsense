@@ -20,7 +20,14 @@ export class DisabilityMenuComponent {
     }, 100);
   }
 
-  @HostListener('document:click', ['$event']) //Close the menu when clicking outside
+  showMenu() {
+    const menu = document.querySelector('.disabilityMenu') as HTMLElement;
+    menu.classList.toggle('menueVisible');
+    this.isMenuVisible = !this.isMenuVisible;
+  }
+
+  //Close the menu when clicking outside
+  @HostListener('document:click', ['$event'])
   onClick(event: MouseEvent) {
     this.clickCount++;
     const target = event.target as HTMLElement;
@@ -34,16 +41,19 @@ export class DisabilityMenuComponent {
     }
   }
 
-  @HostListener('document:wheel', ['$event']) //Close the menu when scrolling
+  //Close the menu when scrolling
+  @HostListener('document:wheel', ['$event'])
   onScroll() {
     if (this.isMenuVisible) {
       this.showMenu();
     }
   }
 
-  showMenu() {
-    const menu = document.querySelector('.disabilityMenu') as HTMLElement;
-    menu.classList.toggle('menueVisible');
-    this.isMenuVisible = !this.isMenuVisible;
+  //Close the menu when scrolling on mobile devices
+  @HostListener('touchmove', ['$event'])
+  onTouchMove(event: TouchEvent) {
+    if (this.isMenuVisible) {
+      this.showMenu();
+    }
   }
 }

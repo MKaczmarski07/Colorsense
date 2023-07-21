@@ -40,7 +40,7 @@ export class AppComponent implements AfterViewInit {
     setTimeout(() => {
       this.isLoaderVisible = false;
     }, 1000);
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 768 && this.scrollService.checkBrowser()) {
       this.scrollService.initializeSmoothScrollbar();
       document.querySelector('.smooth-scroll')?.classList.add('scroll-offset');
     }

@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { FilterService } from '../../filter.service';
+import { FilterService } from '../../../services/filter.service';
 
 @Component({
   selector: 'app-disability-menu',
@@ -51,7 +51,7 @@ export class DisabilityMenuComponent {
 
   //Close the menu when scrolling on mobile devices
   @HostListener('touchmove', ['$event'])
-  onTouchMove(event: TouchEvent) {
+  onTouchMove() {
     if (this.isMenuVisible) {
       this.showMenu();
     }

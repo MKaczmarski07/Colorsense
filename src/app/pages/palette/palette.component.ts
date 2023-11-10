@@ -1,30 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterService } from '../filter.service';
-import { ScrollService } from '../scroll.service';
+import { ColorsService } from '../../services/colors.service';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-palette',
+  templateUrl: './palette.component.html',
+  styleUrls: ['./palette.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class PaletteComponent implements OnInit {
   constructor(
-    public filterService: FilterService,
+    public colorsService: ColorsService,
     private scrollService: ScrollService
   ) {}
 
   ngOnInit() {
     this.checkCssSupport();
+    this.colorsService.loadColors();
   }
 
-  scrollDown() {
-    const scrollPoint = document.querySelector('.scroll-point') as HTMLElement;
+  ngAfterViewInit() {
     if (window.innerWidth > 768 && this.scrollService.checkBrowser()) {
-      this.scrollService
-        .initializeSmoothScrollbar()
-        .scrollIntoView(scrollPoint);
+      this.scrollService.initializeSmoothScrollbar().setPosition(0, 0);
     } else {
-      scrollPoint.scrollIntoView({ behavior: 'smooth' });
+      document.body.scrollTop = 0;
     }
   }
 

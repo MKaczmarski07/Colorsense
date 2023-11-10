@@ -12,7 +12,7 @@ Colorsense is an application created to help designers and developers create col
 ✨ A grid of UI elements that changes color depending on the selected palette<br>
 ✨ Simulating color blindness<br>
 ✨ Testing the contrast of the selected palette according to WCAG guidelines<br>
-✨ Editing any color in the palette using a prepared set of shades, manual selection or entering a value<br>
+✨ Editing any color in the palette using a prepared set of shades, manual selection or by entering a value<br>
 
 ## Technology Stack
 

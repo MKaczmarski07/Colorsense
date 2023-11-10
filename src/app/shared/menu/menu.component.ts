@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ColorsService } from '../colors.service';
-import { FilterService } from '../filter.service';
-import { GeneratorService } from '../generator.service';
+import { ColorsService } from '../../services/colors.service';
+import { FilterService } from '../../services/filter.service';
+import { GeneratorService } from '../../services/generator.service';
 
 @Component({
   selector: 'app-menu',

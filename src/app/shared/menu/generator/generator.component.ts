@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { GeneratorService } from 'src/app/generator.service';
+import { GeneratorService } from '../../../services/generator.service';
 
 @Component({
   selector: 'app-generator',

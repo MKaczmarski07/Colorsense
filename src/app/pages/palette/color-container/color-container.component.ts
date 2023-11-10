@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ColorsService } from 'src/app/colors.service';
+import { ColorsService } from 'src/app/services/colors.service';
 import * as chroma from 'chroma-js';
 
 @Component({

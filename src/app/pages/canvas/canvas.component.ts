@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { ColorsService } from '../colors.service';
-import { FilterService } from '../filter.service';
-import { ScrollService } from '../scroll.service';
+import { ColorsService } from '../../services/colors.service';
+import { FilterService } from '../../services/filter.service';
+import { ScrollService } from '../../services/scroll.service';
 @Component({
   selector: 'app-canvas',
   templateUrl: './canvas.component.html',

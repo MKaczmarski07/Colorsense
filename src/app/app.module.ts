@@ -3,19 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
-import { CanvasComponent } from './canvas/canvas.component';
+import { MenuComponent } from './shared/menu/menu.component';
+import { CanvasComponent } from './pages/canvas/canvas.component';
 import { NgxColorsModule } from 'ngx-colors';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { ContrastComponent } from './contrast/contrast.component';
-import { DisabilityMenuComponent } from './canvas/disability-menu/disability-menu.component';
-import { PaletteComponent } from './palette/palette.component';
-import { ColorContainerComponent } from './palette/color-container/color-container.component';
-import { GeneratorComponent } from './menu/generator/generator.component';
-import { LoaderComponent } from './loader/loader.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ContrastComponent } from './pages/contrast/contrast.component';
+import { DisabilityMenuComponent } from './pages/canvas/disability-menu/disability-menu.component';
+import { PaletteComponent } from './pages/palette/palette.component';
+import { ColorContainerComponent } from './pages/palette/color-container/color-container.component';
+import { GeneratorComponent } from './shared/menu/generator/generator.component';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 @NgModule({
   declarations: [

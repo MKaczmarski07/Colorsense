@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { ScrollService } from './scroll.service';
+import { ScrollService } from './services/scroll.service';
 import { Meta } from '@angular/platform-browser';
 import { trigger, transition, style, animate } from '@angular/animations';
 

@@ -2,17 +2,23 @@
 
 The following project is a subset of web design tools, allowing for creating color palettes adapted to websites and accessible to people with disabilities. The generated palettes can be tested against Web Content Accessibility Guidelines (WCAG), to ensure compability with the international design standards for the Internet.
 
-
-## Live Demo 
-
-[colorsense.kaczmarski.dev](https://colorsense.kaczmarski.dev)
-
 ## Application Features
 🔷 Color palette generator ( currently with 4 variants - Complementary, Monochromatic, Light and Dark ) </br>
 🔷 A grid of customizable UI elements </br>
 🔷 Simulating color blindness<br>
 🔷 Testing contrast of the selected palette according to WCAG guidelines</br>
 🔷 Editing any color in the color palette using a prepared set of shades or manually/br>
+
+### Used Technologies
+[![My Skills](https://skillicons.dev/icons?i=angular,typescript,html,sass,tailwind)](https://skillicons.dev)
+
+### Additional Libraries
+- [Chroma.js 🔗](https://gka.github.io/chroma.js/)<br>
+- [Ngx-colors 🔗](https://ngx-colors.web.app/overview)<br>
+- [color-blind library 🔗](https://github.com/skratchdot/color-blind)<br>
+
+## Live Demo 
+[colorsense.kaczmarski.dev](https://colorsense.kaczmarski.dev)
 
 ## User Interface
 #### Displaying palette on real UI
@@ -23,14 +29,6 @@ The following project is a subset of web design tools, allowing for creating col
 
 #### Checking contrast according to WCAG
 <img width="1917" height="903" alt="Contrast" src="https://github.com/user-attachments/assets/8c3a41f8-5b83-470b-b356-120f7839c84f" />
-
-### Used Technologies
-[![My Skills](https://skillicons.dev/icons?i=angular,typescript,html,sass,tailwind)](https://skillicons.dev)
-
-### Additional Libraries
-- [Chroma.js 🔗](https://gka.github.io/chroma.js/)<br>
-- [Ngx-colors 🔗](https://ngx-colors.web.app/overview)<br>
-- [color-blind library 🔗](https://github.com/skratchdot/color-blind)<br>
 
 ## Installation Guide ⚙️
 

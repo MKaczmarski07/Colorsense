@@ -1,28 +1,36 @@
-# Colorsense
+# About The Project
 
-Colorsense is an application created to help designers and developers create color palettes adapted to websites. Thanks to the multitude of built-in functions, the color palettes created with this application will always be adequately contrasted and accessible to people with disabilities.
+The following project is a subset of web design tools, allowing for creating color palettes adapted to websites and accessible to people with disabilities. The generated palettes can be tested against Web Content Accessibility Guidelines (WCAG), to ensure compability with the international design standards for the Internet.
 
-## Official Website 🌐
+
+## Live Demo 
 
 [colorsense.kaczmarski.dev](https://colorsense.kaczmarski.dev)
 
-## Site Features
+## Application Features
+🔷 Color palette generator ( currently with 4 variants - Complementary, Monochromatic, Light and Dark ) </br>
+🔷 A grid of customizable UI elements </br>
+🔷 Simulating color blindness<br>
+🔷 Testing contrast of the selected palette according to WCAG guidelines</br>
+🔷 Editing any color in the color palette using a prepared set of shades or manually/br>
 
-✨ Color palette generator ( currently with 4 variants - Complementary, Monochromatic, Light and Dark )<br>
-✨ A grid of UI elements that changes color depending on the selected palette<br>
-✨ Simulating color blindness<br>
-✨ Testing the contrast of the selected palette according to WCAG guidelines<br>
-✨ Editing any color in the palette using a prepared set of shades, manual selection or by entering a value<br>
+## User Interface
+#### Displaying palette on real UI
+<img width="1918" height="886" alt="Mockup1" src="https://github.com/user-attachments/assets/f6e46240-381c-4298-b3f5-4665a904654a" />
 
-## Technology Stack
+#### Simulating color blindness
+<img width="1918" height="881" alt="Mockup2" src="https://github.com/user-attachments/assets/dd5e7f29-762b-495f-a681-f6fb5e2ecc11" />
 
-[Angular 🔗](https://angular.io)<br>
-[TypeScript 🔗](https://typescriptlang.org)<br>
-[TailwindCSS 🔗](https://tailwindcss.com)<br>
-[Sass 🔗](https://sass-lang.com)<br>
-[Chroma.js 🔗](https://gka.github.io/chroma.js/)<br>
-[Ngx-colors 🔗](https://ngx-colors.web.app/overview)<br>
-[color-blind library 🔗](https://github.com/skratchdot/color-blind)<br>
+#### Checking contrast according to WCAG
+<img width="1917" height="903" alt="Contrast" src="https://github.com/user-attachments/assets/8c3a41f8-5b83-470b-b356-120f7839c84f" />
+
+### Used Technologies
+[![My Skills](https://skillicons.dev/icons?i=angular,typescript,html,sass,tailwind)](https://skillicons.dev)
+
+### Additional Libraries
+- [Chroma.js 🔗](https://gka.github.io/chroma.js/)<br>
+- [Ngx-colors 🔗](https://ngx-colors.web.app/overview)<br>
+- [color-blind library 🔗](https://github.com/skratchdot/color-blind)<br>
 
 ## Installation Guide ⚙️
 
@@ -51,6 +59,6 @@ Your application is ready at port 4200.
 
 ## License and Copyrights 📜
 
-- The application is publicly available under the GNU GENERAL PUBLIC LICENSE.
-- The project is educational and is not used for commercial purposes.
-- The main algorithm of Color Blindness Simulation used in color-blind library was originally made by Matthew Wickline and the Human-Computer Interaction Resource Network and is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+- The application is publicly available under the GNU General Public License.
+- The project is educational and is not used for any commercial purposes.
+- The main algorithm of Color Blindness Simulation used in color-blind library was originally made by Matthew Wickline & the Human-Computer Interaction Resource Network and is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.

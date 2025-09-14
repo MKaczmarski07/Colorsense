@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterService } from '../../services/filter.service';
-import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,6 @@ import { ScrollService } from '../../services/scroll.service';
 export class HomeComponent implements OnInit {
   constructor(
     public filterService: FilterService,
-    private scrollService: ScrollService
   ) {}
 
   ngOnInit() {
@@ -19,15 +17,9 @@ export class HomeComponent implements OnInit {
 
   scrollDown() {
     const scrollPoint = document.querySelector('.scroll-point') as HTMLElement;
-    if (window.innerWidth > 768 && this.scrollService.checkBrowser()) {
-      this.scrollService
-        .initializeSmoothScrollbar()
-        .scrollIntoView(scrollPoint);
-    } else {
       scrollPoint.scrollIntoView({ behavior: 'smooth' });
     }
-  }
-
+  
   checkCssSupport() {
     let isSupported = CSS.supports('height: 100svh');
     const elem = document.querySelectorAll(

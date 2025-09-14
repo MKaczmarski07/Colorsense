@@ -5,4 +5,13 @@ import { Component } from '@angular/core';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
 })
-export class FooterComponent {}
+export class FooterComponent {
+
+  year = 0
+
+  ngOnInit() {
+    const date = new Date();
+    this.year = date.getFullYear()
+  }
+
+}
